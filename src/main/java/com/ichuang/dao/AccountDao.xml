@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.AccountDao">
+    <!-- 添加账户 -->
+    <insert id="addAccount" parameterType="Account">
+        insert into account (account,password,types) values (#{account},#{password},#{types});
+    </insert>
+    <!-- 删除账户 -->
+    <delete id="deleteAccount" parameterType="String">
+        delete from account where account=#{account};
+    </delete>
+    <!-- 更新账户 -->
+    <update id="updateAccount" parameterType="Account">
+        update account
+        <set>
+            <if test="password!=null">
+                password=#{password}
+            </if>
+            <if test="types!=null">
+                types=#{types}
+            </if>
+        </set>
+        where account=#{account};
+    </update>
+    <!-- 根据id查找账户 -->
+    <select id="getAccountById" parameterType="String" resultType="Account">
+        select * from account where account=#{account};
+    </select>
+    <!-- 通过账户和密码查询用户 -->
+    <select id="findAccount" parameterType="String" resultType="Account">
+        select * from account where account=#{account} and password=#{password};
+    </select>
+    <!-- 查询所有账户信息 -->
+    <select id="listAccount" parameterType="int" resultType="Account">
+        select * from account;
+    </select>
+</mapper>
