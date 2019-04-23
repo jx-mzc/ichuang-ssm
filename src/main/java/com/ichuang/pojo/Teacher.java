@@ -3,13 +3,14 @@ package com.ichuang.pojo;
 import java.io.Serializable;
 
 /**
- * 后台管理员持久化类
+ * 指导老师持久化类
  */
-public class Admin implements Serializable {
-    private String id;//管理员号
-    private String name;//管理员名
-    private String sex;//性别
-    private String phone;//电话号码
+public class Teacher implements Serializable {
+    private String id;
+    private String name;
+    private String sex;
+    private String phone;
+    private String introduction;
     private String photo;//照片地址
     private Integer start;            // 起始行
     private Integer rows;             // 所取行数
@@ -45,6 +46,14 @@ public class Admin implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
     }
 
     public String getPhoto() {

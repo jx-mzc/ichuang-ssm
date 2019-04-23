@@ -90,4 +90,17 @@ public class AccountController {
     public String toMain(){
         return "main";
     }
+    /**
+     * 修改账户信息
+     */
+    @ResponseBody
+    @RequestMapping("/updateAccount.action")
+    public String updateAccount(@RequestBody Account account){
+        int rows = accountService.updateAccount(account);
+        if (rows > 0){
+            return "SUCCESS";
+        }else {
+            return "FAIL";
+        }
+    }
 }

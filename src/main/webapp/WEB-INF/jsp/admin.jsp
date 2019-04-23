@@ -1,3 +1,4 @@
+<%@ taglib prefix="ichuang" uri="http://ichuang.com/" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -27,63 +28,25 @@
     <!-- /.row -->
     <div class="panel panel-default">
         <div class="panel-body">
-            <form class="form-inline" method="get"
-                  action="${pageContext.request.contextPath }/customer/list.action">
                 <div class="form-group">
-                    <label for="customerName">客户名称</label>
-                    <input type="text" class="form-control" id="customerName"
-                           value="${custName }" name="custName" />
+                    <label for="adminId">管理员号</label>
+                    <input type="text" class="form-control" id="adminId" name="adminId" />
                 </div>
                 <div class="form-group">
-                    <label for="customerFrom">客户来源</label>
-                    <select	class="form-control" id="customerFrom" name="custSource">
-                        <option value="">--请选择--</option>
-                        <c:forEach items="${fromType}" var="item">
-                            <option value="${item.dict_id}"
-                                    <c:if test="${item.dict_id == custSource}">selected</c:if>>
-                                    ${item.dict_item_name }
-                            </option>
-                        </c:forEach>
-                    </select>
+                    <label for="adminName">管理员姓名</label>
+                    <input type="text" class="form-control" id="adminName" name="adminName" />
                 </div>
-                <div class="form-group">
-                    <label for="custIndustry">所属行业</label>
-                    <select	class="form-control" id="custIndustry"  name="custIndustry">
-                        <option value="">--请选择--</option>
-                        <c:forEach items="${industryType}" var="item">
-                            <option value="${item.dict_id}"
-                                    <c:if test="${item.dict_id == custIndustry}"> selected</c:if>>
-                                    ${item.dict_item_name }
-                            </option>
-                        </c:forEach>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="custLevel">客户级别</label>
-                    <select	class="form-control" id="custLevel" name="custLevel">
-                        <option value="">--请选择--</option>
-                        <c:forEach items="${levelType}" var="item">
-                            <option value="${item.dict_id}"
-                                    <c:if test="${item.dict_id == custLevel}"> selected</c:if>>
-                                    ${item.dict_item_name }
-                            </option>
-                        </c:forEach>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">查询</button>
-            </form>
+                <input type="button" class="btn btn-primary" onclick="select()" value="查询">
         </div>
     </div>
-    <a href="#" class="btn btn-primary" data-toggle="modal"
-       data-target="#newCustomerDialog" onclick="clearCustomer()">新建</a>
-    <a href="/listAdmin.action" class="btn btn-primary" data-toggle="modal"
-       data-target="#newCustomerDialog" onclick="">查看所有信息</a>
+    <input type="button" class="btn btn-primary"  onclick="" value="新建"/>
+    <input type="button" class="btn btn-primary"  onclick="listAll()" value="查看所有信息"/>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">管理员信息列表</div>
                 <!-- /.panel-heading -->
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped" id="datas">
                     <thead>
                     <tr>
                         <th>管理员号</th>
@@ -93,24 +56,22 @@
                         <th>操作</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <c:forEach items="${page.rows}" var="row">
-                        <tr>
-                            <td>${row.cust_id}</td>
-                            <td>${row.cust_name}</td>
-                            <td>${row.cust_source}</td>
-                            <td>${row.cust_industry}</td>
-                            <td>${row.cust_level}</td>
-                            <td>${row.cust_phone}</td>
-                            <td>${row.cust_mobile}</td>
-                            <td>
-                                <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick= "editCustomer(${row.cust_id})">修改</a>
-                                <a href="#" class="btn btn-danger btn-xs" onclick="deleteCustomer(${row.cust_id})">删除</a>
-                            </td>
-                        </tr>
-                    </c:forEach>
+                    <tbody id="tbMain">
+                        <%--<tr id="admin_tr">--%>
+                            <%--<td id="admin_id"></td>--%>
+                            <%--<td id="admin_name"></td>--%>
+                            <%--<td id="admin_sex"></td>--%>
+                            <%--<td id="admin_phone"></td>--%>
+                            <%--<td>--%>
+                                <%--<a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#customerEditDialog" onclick= "">修改</a>--%>
+                                <%--<a href="#" class="btn btn-danger btn-xs" onclick="">删除</a>--%>
+                            <%--</td>--%>
+                        <%--</tr>--%>
                     </tbody>
                 </table>
+                <div class="col-md-12 text-right">
+                    <ichuang:page url="${pageContext.request.contextPath }/listAdmin.action" />
+                </div>
                 <!-- /.panel-body -->
             </div>
             <!-- /.panel -->
@@ -119,5 +80,94 @@
     </div>
 </div>
 <!-- 客户列表查询部分  end-->
+
+<!-- 全局js -->
+<script src="${pageContext.request.contextPath}/js/jquery.min.js?v=2.1.4"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js?v=3.3.6"></script>
+<script>
+    function select() {
+        var id = $('#admin_id').val();
+        var name = $('#admin_name').val();
+        $.ajax ({
+            type:"post",
+            url:"${pageContext.request.contextPath}/listAdmin.action",
+            data:JSON.stringify({id:id,name:name}),
+            contentType:"application/json;charset=UTF-8",
+            success:function (result) {
+               var admins = JSON.parse(result);
+               for (i in admins){
+                   var row = $("#admin_tr").clone();
+                   row.find("#admin_id").text(admins[i].id);
+                   row.find("#admin_name").text(admins[i].name);
+                   row.find("admin_sex").text(admins[i].sex);
+                   row.find("admin_phone").text(admins[i].phone);
+                   row.appendTo("#datas");
+               }
+            }
+    })
+    }
+
+    function listAll() {
+        $.ajax ({
+            type:"post",
+            url:"${pageContext.request.contextPath}/listAdmin.action",
+            data:JSON.stringify({page:1,rows:10}),
+            contentType:"application/json;charset=UTF-8",
+            success:function (result) {
+                var admins = JSON.parse(result).rows;
+                var table = document.getElementById('tbMain');
+                var childs = table.childNodes;
+                for (var k = childs.length - 1;k>=0;k--){
+                    table.removeChild(childs[k]);
+                }
+                for (var i = 0; i < admins.length; i++) {
+                    var trow = getDataRow(admins[i]);
+                    table.appendChild(trow);
+                }
+
+                function getDataRow(h) {
+                    var row = document.createElement('tr'); //创建行  
+
+                    var idCell = document.createElement('td'); //创建第一列id  
+                    idCell.innerHTML = h.id; //填充数据  
+                    row.appendChild(idCell); //加入行  ，下面类似  
+
+                    var nameCell = document.createElement('td');//创建第二列name  
+                    nameCell.innerHTML = h.name;
+                    row.appendChild(nameCell);
+
+                    var jobCell = document.createElement('td');//创建第三列sex 
+                    jobCell.innerHTML = h.sex;
+                    row.appendChild(jobCell);
+
+                    var jobCell = document.createElement('td');//创建第四列phone  
+                    jobCell.innerHTML = h.phone;
+                    row.appendChild(jobCell);
+                    //到这里，json中的数据已经添加到表格中，下面为每行末尾添加操作按钮
+
+                    var doCell = document.createElement('td');//创建第四列，操作列
+                    row.appendChild(doCell);
+                    var btnUpdate = document.createElement('input');//创建一个input控件
+                    btnUpdate.setAttribute('type','button');
+                    btnUpdate.setAttribute('class','btn btn-primary btn-xs');
+                    btnUpdate.setAttribute('value','修改');
+                    //修改操作
+                    btnUpdate.onclick=function () {  }
+                    doCell.appendChild(btnUpdate);
+
+                    var btndel = document.createElement('input');//创建一个input控件
+                    btndel.setAttribute('type','button');
+                    btndel.setAttribute('class','btn btn-danger btn-xs');
+                    btndel.setAttribute('value','删除');
+                    //删除操作
+                    btndel.onclick=function () {  }
+                    doCell.appendChild(btndel);
+
+                    return row;
+                }
+            }
+        })
+    }
+</script>
 </body>
 </html>

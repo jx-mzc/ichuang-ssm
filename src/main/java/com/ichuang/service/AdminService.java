@@ -1,6 +1,7 @@
 package com.ichuang.service;
 
 import com.ichuang.pojo.Admin;
+import com.ichuang.utils.Page;
 
 import java.util.List;
 
@@ -17,5 +18,5 @@ public interface AdminService {
     //查询管理员信息
     Admin getById( String id);
     //查询所有管理员信息
-    List<Admin> listAll();
+    Page<Admin> listAll(Admin admin);
 }

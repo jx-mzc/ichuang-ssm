@@ -104,6 +104,9 @@
     <select id="listAll" parameterType="Member" resultType="Member">
         select * from member
             <where>
+                <if test="id!=null">
+                    id = #{id}
+                </if>
                 <if test="name!=null">
                     name like "%"#{name}"%"
                 </if>

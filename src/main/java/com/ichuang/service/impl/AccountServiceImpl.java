@@ -21,18 +21,18 @@ public class AccountServiceImpl implements AccountService {
     private AccountDao accountDao;
 
     @Override
-    public void addAccount(Account account) {
-        this.accountDao.addAccount(account);
+    public int addAccount(Account account) {
+        return this.accountDao.addAccount(account);
     }
 
     @Override
-    public void deleteAccount(String id) {
-        this.accountDao.deleteAccount(id);
+    public int deleteAccount(String id) {
+        return this.accountDao.deleteAccount(id);
     }
 
     @Override
-    public void updateAccount(Account account) {
-        this.accountDao.updateAccount(account);
+    public int updateAccount(Account account) {
+        return this.accountDao.updateAccount(account);
     }
 
     @Override

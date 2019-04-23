@@ -1,8 +1,10 @@
 package com.ichuang.service.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.ichuang.dao.MemberDao;
 import com.ichuang.pojo.Member;
 import com.ichuang.service.MemberService;
+import com.ichuang.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,7 +42,16 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public List<Member> listAll(Member member) {
-        return this.memberDao.listAll(member);
+    public Page<Member> listAll(Member member) {
+        int total = (int) new PageInfo<>(memberDao.listAll(member)).getTotal();
+        member.setStart((member.getPage()-1) * member.getRows());
+        // 创建Page返回对象
+        List<Member> memberList = memberDao.listAll(member);
+        Page<Member> result = new Page<>();
+        result.setPage(member.getPage());
+        result.setRows(memberList);
+        result.setSize(member.getRows());
+        result.setTotal(total);
+        return result;
     }
 }

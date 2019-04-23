@@ -9,11 +9,11 @@ import java.util.List;
  */
 public interface AccountService {
     //添加账户
-    void addAccount(Account account);
+    int addAccount(Account account);
     //删除账户
-    void deleteAccount( String id);
+    int deleteAccount( String id);
     //更新账户信息
-    void updateAccount(Account account);
+    int updateAccount(Account account);
     //查询账户信息通过id
     Account getAccountById( String id);
     //通过账户和密码查询用户

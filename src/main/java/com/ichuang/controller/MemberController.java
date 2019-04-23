@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.ichuang.pojo.Member;
 import com.ichuang.service.AccountService;
 import com.ichuang.service.MemberService;
+import com.ichuang.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -108,14 +109,14 @@ public class MemberController {
     @ResponseBody
     @RequestMapping("/listMember.action")
     public String listMember(@RequestBody Member member){
-        List<Member> memberList = memberService.listAll(member);
+        Page<Member> memberList = memberService.listAll(member);
         return JSONObject.toJSON(memberList).toString();
     }
     /**
      * 添加社员信息
      */
     @ResponseBody
-    @RequestMapping("addMember.action")
+    @RequestMapping("/addMember.action")
     public String addMember(@RequestBody Member member){
         if (memberService.getById(member.getId())!=null){
             return "该社员已存在！";
@@ -133,7 +134,7 @@ public class MemberController {
      * 删除社员信息
      */
     @ResponseBody
-    @RequestMapping("deleteMember.action")
+    @RequestMapping("/deleteMember.action")
     public String deleteMember(@RequestBody Member member){
         int rows = memberService.delete(member.getId());
         accountService.deleteAccount(member.getId());

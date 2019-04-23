@@ -1,8 +1,10 @@
 package com.ichuang.service.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.ichuang.dao.AdminDao;
 import com.ichuang.pojo.Admin;
 import com.ichuang.service.AdminService;
+import com.ichuang.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,7 +42,17 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public List<Admin> listAll() {
-        return this.adminDao.listAll();
+    public Page<Admin> listAll(Admin admin) {
+        int total = (int) new PageInfo<>(adminDao.listAll(admin)).getTotal();
+        admin.setStart((admin.getPage()-1) * admin.getRows());
+        // 创建Page返回对象
+        List<Admin> adminList = adminDao.listAll(admin);
+        Page<Admin> result = new Page<>();
+        result.setPage(admin.getPage());
+        result.setRows(adminList);
+        result.setSize(admin.getRows());
+        result.setTotal(total);
+        return result;
     }
+
 }

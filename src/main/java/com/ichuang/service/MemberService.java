@@ -1,6 +1,7 @@
 package com.ichuang.service;
 
 import com.ichuang.pojo.Member;
+import com.ichuang.utils.Page;
 
 import java.util.List;
 
@@ -17,5 +18,5 @@ public interface MemberService {
     //查询社员信息通过id
     Member getById( String id);
     //查询所有社员信息
-    List<Member> listAll(Member member);
+    Page<Member> listAll(Member member);
 }

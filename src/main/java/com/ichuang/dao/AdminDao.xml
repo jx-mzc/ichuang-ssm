@@ -34,7 +34,19 @@
         select * from admin where id=#{id};
     </select>
     <!-- 查询所有管理员 -->
-    <select id="listAll" resultType="Admin">
-        select * from admin;
+    <select id="listAll" resultType="Admin" parameterType="Admin">
+        select * from admin
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="name!=null">
+                name like "%"#{name}"%"
+            </if>
+        </where>
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
     </select>
 </mapper>
