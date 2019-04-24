@@ -1,4 +1,4 @@
-<%@ taglib prefix="ichuang" uri="http://ichuang.com/" %>
+<%@ taglib prefix="ichuang" uri="http://ichuang.com/common/" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -15,6 +15,7 @@
     <link href="${pageContext.request.contextPath}/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/animate.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/dataTables.bootstrap.css" rel="stylesheet" />
 </head>
 <body>
 <!-- 客户列表查询部分  start-->
@@ -88,7 +89,7 @@
     function select() {
         var id = $('#admin_id').val();
         var name = $('#admin_name').val();
-        $.ajax ({
+        $.post ({
             type:"post",
             url:"${pageContext.request.contextPath}/listAdmin.action",
             data:JSON.stringify({id:id,name:name}),
@@ -108,12 +109,10 @@
     }
 
     function listAll() {
-        $.ajax ({
-            type:"post",
-            url:"${pageContext.request.contextPath}/listAdmin.action",
-            data:JSON.stringify({page:1,rows:10}),
-            contentType:"application/json;charset=UTF-8",
-            success:function (result) {
+        var url = "${pageContext.request.contextPath}/listAdmin.action"
+        $.post (
+            url,
+            function (result) {
                 var admins = JSON.parse(result).rows;
                 var table = document.getElementById('tbMain');
                 var childs = table.childNodes;
@@ -166,7 +165,7 @@
                     return row;
                 }
             }
-        })
+        );
     }
 </script>
 </body>

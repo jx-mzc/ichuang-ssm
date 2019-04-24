@@ -18,5 +18,5 @@ public interface AdminService {
     //查询管理员信息
     Admin getById( String id);
     //查询所有管理员信息
-    Page<Admin> listAll(Admin admin);
+    Page<Admin> listAll(Integer page,Integer rows,String name);
 }

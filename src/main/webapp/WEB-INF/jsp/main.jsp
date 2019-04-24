@@ -47,7 +47,7 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="/toAdmin.action">管理员信息管理</a>
+                            <a class="J_menuItem" href="${pageContext.request.contextPath}/toAdmin.action">管理员信息管理</a>
                         </li>
                         <li>
                             <a class="J_menuItem" href="graph_flot.html">学校信息管理</a>
@@ -444,7 +444,7 @@
             </nav>
         </div>
         <div class="row J_mainContent" id="content-main">
-            <iframe id="J_iframe" width="100%" height="100%" src="/toAdmin.action" frameborder="0" data-id="index_v1.html" seamless></iframe>
+            <iframe id="J_iframe" width="100%" height="100%" src="${pageContext.request.contextPath}/toAdmin.action" frameborder="0" data-id="index_v1.html" seamless></iframe>
         </div>
     </div>
     <!--右侧部分结束-->

@@ -5,6 +5,7 @@ import com.ichuang.dao.MemberDao;
 import com.ichuang.pojo.Member;
 import com.ichuang.service.MemberService;
 import com.ichuang.utils.Page;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,15 +43,29 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Page<Member> listAll(Member member) {
+    public Page<Member> listAll(Integer page,Integer rows,String id,String name,String school_name,String club_name) {
+        Member member = new Member();
+        if (StringUtils.isNoneBlank(id)){
+            member.setId(id);
+        }
+        if (StringUtils.isNoneBlank(name)){
+            member.setName(name);
+        }
+        if (StringUtils.isNoneBlank(school_name)){
+            member.setSchool_name(school_name);
+        }
+        if (StringUtils.isNoneBlank(club_name)){
+            member.setClub_name(club_name);
+        }
         int total = (int) new PageInfo<>(memberDao.listAll(member)).getTotal();
-        member.setStart((member.getPage()-1) * member.getRows());
+        member.setStart((page-1)* rows);
+        member.setRows(rows);
         // 创建Page返回对象
         List<Member> memberList = memberDao.listAll(member);
         Page<Member> result = new Page<>();
-        result.setPage(member.getPage());
+        result.setPage(page);
         result.setRows(memberList);
-        result.setSize(member.getRows());
+        result.setSize(rows);
         result.setTotal(total);
         return result;
     }

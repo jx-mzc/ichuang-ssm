@@ -48,8 +48,9 @@ public class AdminController {
      */
     @ResponseBody
     @RequestMapping("/listAdmin.action")
-    public String listAdmin(@RequestBody Admin admin){
-       Page<Admin> admins = adminService.listAll(admin);
+    public String listAdmin(@RequestParam(defaultValue="1",required=false)Integer page,
+                            @RequestParam(defaultValue="10",required=false)Integer rows,String name){
+       Page<Admin> admins = adminService.listAll(page,rows,name);
        return JSONObject.toJSON(admins).toString();
     }
 }

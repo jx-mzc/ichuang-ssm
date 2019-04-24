@@ -24,7 +24,6 @@ public class Member implements Serializable {
     private String photo;//照片地址
     private Integer start;            // 起始行
     private Integer rows;             // 所取行数
-    private Integer page;  //所取页数
 
     public String getId() {
         return id;
@@ -170,11 +169,4 @@ public class Member implements Serializable {
         this.rows = rows;
     }
 
-    public Integer getPage() {
-        return page;
-    }
-
-    public void setPage(Integer page) {
-        this.page = page;
-    }
 }

@@ -108,8 +108,10 @@ public class MemberController {
      */
     @ResponseBody
     @RequestMapping("/listMember.action")
-    public String listMember(@RequestBody Member member){
-        Page<Member> memberList = memberService.listAll(member);
+    public String listMember(@RequestParam(defaultValue="1", required=false)Integer page,
+                             @RequestParam(defaultValue="10",required=false)Integer rows,
+                             String id,String name,String school_name,String club_name){
+        Page<Member> memberList = memberService.listAll(page,rows,id,name,school_name,club_name);
         return JSONObject.toJSON(memberList).toString();
     }
     /**

@@ -18,5 +18,5 @@ public interface MemberService {
     //查询社员信息通过id
     Member getById( String id);
     //查询所有社员信息
-    Page<Member> listAll(Member member);
+    Page<Member> listAll(Integer page,Integer rows,String id,String name,String shcool_name,String club_name);
 }

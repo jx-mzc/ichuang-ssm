@@ -15,10 +15,10 @@
         update account
         <set>
             <if test="password!=null">
-                password=#{password}
+                password=#{password},
             </if>
             <if test="types!=null">
-                types=#{types}
+                types=#{types},
             </if>
         </set>
         where account=#{account};

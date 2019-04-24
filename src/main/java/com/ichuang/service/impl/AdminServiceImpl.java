@@ -5,6 +5,7 @@ import com.ichuang.dao.AdminDao;
 import com.ichuang.pojo.Admin;
 import com.ichuang.service.AdminService;
 import com.ichuang.utils.Page;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,13 +43,23 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Page<Admin> listAll(Admin admin) {
+    public Page<Admin> listAll(Integer page,Integer rows,String name) {
+        //创建管理员对象
+        Admin admin = new Admin();
+        if (StringUtils.isNoneBlank(name)){
+            admin.setName(name);
+        }
+        //查看管理员列表总记录数
         int total = (int) new PageInfo<>(adminDao.listAll(admin)).getTotal();
-        admin.setStart((admin.getPage()-1) * admin.getRows());
-        // 创建Page返回对象
+        //当前页
+        admin.setStart((page-1) * rows);
+        //每页数
+        admin.setRows(rows);
+        //查找分页后的数据
         List<Admin> adminList = adminDao.listAll(admin);
+        // 创建Page返回对象
         Page<Admin> result = new Page<>();
-        result.setPage(admin.getPage());
+        result.setPage(page);
         result.setRows(adminList);
         result.setSize(admin.getRows());
         result.setTotal(total);
