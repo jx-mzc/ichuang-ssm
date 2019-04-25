@@ -2,9 +2,58 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ichuang.dao.TeacherDao">
-    <!-- 添加老师 -->
+    <!-- 添加老师信息 -->
     <insert id="add" parameterType="Teacher">
         insert into teacher(id,name,sex,phone,introduction,photo)
         values (#{id},#{name},#{sex},#{phone},#{introduction},#{photo})
     </insert>
+    <!-- 删除老师信息 -->
+    <delete id="delete" parameterType="String">
+        delete from teacher where id=#{id};
+    </delete>
+    <!-- 更新老师信息 -->
+    <update id="update" parameterType="Teacher">
+        update teacher
+        <set>
+            <if test="name!=null">
+              name=#{name}
+            </if>
+            <if test="sex!=null">
+                sex=#{sex}
+            </if>
+            <if test="phone!=null">
+                phone=#{phone}
+            </if>
+            <if test="introduction!=null">
+                introduction=#{introduction}
+            </if>
+            <if test="photo!=null">
+                photo=#{photo}
+            </if>
+        </set>
+        where id=#{id};
+    </update>
+    <!-- 查找老师信息根据id -->
+    <select id="getById" parameterType="String" resultType="Teacher">
+        select * from teacher where id=#{id};
+    </select>
+    <!-- 查找老师信息列表-->
+    <select id="listAll" parameterType="Teacher" resultType="Teacher">
+        select * from teacher
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="name!=null">
+                name like "%"#{name}"%"
+            </if>
+            <if test="phone!=null">
+                and phone=#{phone}
+            </if>
+        </where>
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
 </mapper>

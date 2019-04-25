@@ -35,8 +35,8 @@ public class MemberController {
      */
     @RequestMapping("/getMember.action")
     @ResponseBody
-    public String getMemberById(@RequestBody Map<String,String> id){
-        Member member = memberService.getById(id.get("id"));
+    public String getMemberById(String id){
+        Member member = memberService.getById(id);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("Member",JSONObject.toJSON(member));
 //        String m = JSON.toJSONString(member);
@@ -111,8 +111,8 @@ public class MemberController {
     public String listMember(@RequestParam(defaultValue="1", required=false)Integer page,
                              @RequestParam(defaultValue="10",required=false)Integer rows,
                              String id,String name,String school_name,String club_name){
-        Page<Member> memberList = memberService.listAll(page,rows,id,name,school_name,club_name);
-        return JSONObject.toJSON(memberList).toString();
+        Page<Member> memberPage = memberService.listAll(page,rows,id,name,school_name,club_name);
+        return JSONObject.toJSON(memberPage).toString();
     }
     /**
      * 添加社员信息
