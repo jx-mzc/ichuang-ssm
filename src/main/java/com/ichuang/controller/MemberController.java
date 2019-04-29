@@ -57,9 +57,7 @@ public class MemberController {
             return jsonObject.toJSONString();
         }
         else {
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("Member",JSONObject.toJSON(member));
-            return jsonObject.toJSONString();
+            return "FAIL";
         }
     }
     /**
