@@ -89,7 +89,7 @@ public class TeacherController {
      * 删除教师信息
      */
     @ResponseBody
-    @RequestMapping("/deleteMemberTeacher.action")
+    @RequestMapping("/deleteTeacher.action")
     public String deleteMember(@RequestBody Teacher teacher){
         int rows = teacherService.delete(teacher.getId());
         accountService.deleteAccount(teacher.getId());
