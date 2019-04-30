@@ -42,7 +42,8 @@ public class CourseExerciseServiceImpl implements CourseExerciseService {
     }
 
     @Override
-    public Page<CourseExercise> listAll(Integer page, Integer rows, String id, String name, String course_name, String course_id, String teacher_id) {
+    public Page<CourseExercise> listAll(Integer page, Integer rows, String id, String name, String course_name,
+                                        String course_id, String teacher_id) {
         CourseExercise courseExercise = new CourseExercise();
         if (StringUtils.isNoneBlank(id)){
             courseExercise.setId(id);

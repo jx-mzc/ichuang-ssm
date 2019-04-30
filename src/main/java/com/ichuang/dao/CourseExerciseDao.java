@@ -17,5 +17,5 @@ public interface CourseExerciseDao {
     //查询课程练习信息
     public CourseExercise getById( String id);
     //查询课程练习信息
-    public List<CourseExercise> listAll(CourseExercise course);
+    public List<CourseExercise> listAll(CourseExercise courseExercise);
 }
