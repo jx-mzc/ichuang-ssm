@@ -39,7 +39,9 @@
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath:springmvc-config.xml</param-value>
     </init-param>
-    <!-- 配置服务器启动后立即加载Spring MVC配置文件 -->
+    <!-- 配置服务器启动后立即加载Spring MVC配置文件
+     如果元素为1，则会在应用程序启动时会立即加载该servlet，
+     如果元素不存在，则应用程序会在第一行servlet请求时加载该servlet-->
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
