@@ -16,19 +16,19 @@
         update teacher
         <set>
             <if test="name!=null">
-              name=#{name}
+              name=#{name},
             </if>
             <if test="sex!=null">
-                sex=#{sex}
+                sex=#{sex},
             </if>
             <if test="phone!=null">
-                phone=#{phone}
+                phone=#{phone},
             </if>
             <if test="introduction!=null">
-                introduction=#{introduction}
+                introduction=#{introduction},
             </if>
             <if test="photo!=null">
-                photo=#{photo}
+                photo=#{photo},
             </if>
         </set>
         where id=#{id};
@@ -45,7 +45,7 @@
                 id = #{id}
             </if>
             <if test="name!=null">
-                name like "%"#{name}"%"
+                and name like "%"#{name}"%"
             </if>
             <if test="phone!=null">
                 and phone=#{phone}

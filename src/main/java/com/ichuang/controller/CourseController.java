@@ -1,9 +1,8 @@
 package com.ichuang.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.ichuang.pojo.Teacher;
-import com.ichuang.service.AccountService;
-import com.ichuang.service.TeacherService;
+import com.ichuang.pojo.Course;
+import com.ichuang.service.CourseService;
 import com.ichuang.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,49 +17,47 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * 教师控制器类
+ * 课程信息控制器类
  */
 @Controller
-public class TeacherController {
+public class CourseController {
     //依赖注入
     @Autowired
-    private TeacherService teacherService;
-    @Autowired
-    private AccountService accountService;
+    private CourseService courseService;
 
     /**
-     * 通过ID查询教师信息
+     * 通过ID查询课程信息
      */
     @ResponseBody
-    @RequestMapping("/getTeacher.action")
+    @RequestMapping("/getCourse.action")
     public String getTeacher(String id){
-        Teacher teacher = teacherService.getById(id);
+        Course course = courseService.getById(id);
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Teacher",JSONObject.toJSON(teacher));
+        jsonObject.put("Course",JSONObject.toJSON(course));
         return jsonObject.toJSONString();
     }
     /**
-     * 查询教师信息列表
+     * 查询课程信息列表
      */
     @ResponseBody
-    @RequestMapping("/listTeacher.action")
+    @RequestMapping("/listCourse.action")
     public String listMember(@RequestParam(defaultValue="1", required=false)Integer page,
                              @RequestParam(defaultValue="10",required=false)Integer rows,
-                             String id,String name,String phone){
-        Page<Teacher>  teacherPage= teacherService.listAll(page,rows,id,name,phone);
-        return JSONObject.toJSON(teacherPage).toString();
+                             String id, String name, String teacher_name, String teacher_id){
+        Page<Course> coursePage= courseService.listAll(page,rows,id,name,teacher_name,teacher_id);
+        return JSONObject.toJSON(coursePage).toString();
     }
     /**
-     * 修改教师信息
+     * 修改课程信息
      */
     @ResponseBody
-    @RequestMapping("/updateTeacher.action")
-    public String updateMember(@RequestBody Teacher teacher){
-        int rows = teacherService.update(teacher);
-        Teacher teacher1 = teacherService.getById(teacher.getId());
+    @RequestMapping("/updateCourse.action")
+    public String updateMember(@RequestBody Course course){
+        int rows = courseService.update(course);
+        Course course1 = courseService.getById(course.getId());
         if (rows >0){
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("Teacher",JSONObject.toJSON(teacher1));
+            jsonObject.put("Course",JSONObject.toJSON(course1));
             return jsonObject.toJSONString();
         }
         else {
@@ -68,16 +65,16 @@ public class TeacherController {
         }
     }
     /**
-     * 添加教师信息
+     * 添加课程信息
      */
     @ResponseBody
-    @RequestMapping("/addTeacher.action")
-    public String addMember(@RequestBody Teacher teacher){
-        if (teacherService.getById(teacher.getId())!=null){
-            return "该教师已存在！";
+    @RequestMapping("/addCourse.action")
+    public String addMember(@RequestBody Course course){
+        if (courseService.getById(course.getId())!=null){
+            return "该课程已存在！";
         }
         //受影响的行数
-        int rows = teacherService.add(teacher);
+        int rows = courseService.add(course);
         if (rows > 0){
             return "SUCCESS";
         }
@@ -86,13 +83,12 @@ public class TeacherController {
         }
     }
     /**
-     * 删除教师信息
+     * 删除课程信息
      */
     @ResponseBody
-    @RequestMapping("/deleteTeacher.action")
-    public String deleteMember(@RequestBody Teacher teacher){
-        int rows = teacherService.delete(teacher.getId());
-        accountService.deleteAccount(teacher.getId());
+    @RequestMapping("/deleteCourse.action")
+    public String deleteMember(@RequestBody Course course){
+        int rows = courseService.delete(course.getId());
         if (rows > 0){
             return "SUCCESS";
         }else {
@@ -100,24 +96,24 @@ public class TeacherController {
         }
     }
     /**
-     * 执行上传头像
+     * 执行上传封面照片
      */
     @ResponseBody
-    @RequestMapping("/uploadTeacherPhoto.action")
+    @RequestMapping("/uploadCoursePhoto.action")
     public String uploadMemberPhoto(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
         httpServletRequest.setCharacterEncoding("UTF-8");
         String id = httpServletRequest.getParameter("id");
-        Teacher teacher = teacherService.getById(id);
+        Course course = courseService.getById(id);
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Teacher",JSONObject.toJSON(teacher));
+        jsonObject.put("Course",JSONObject.toJSON(course));
         //设置上传头像的保存地址目录
-        String dirPath = "C:/tomcat/apache-tomcat-9.0.12/webapps/images/teacher/";
+        String dirPath = "C:/tomcat/apache-tomcat-9.0.12/webapps/images/course/";
         File file = new File(dirPath);
         //如果保存文件的地址不存在，就先创建目录
         if (!file.exists()){
             file.mkdirs();
         }
-        //重新命名上传文件（教师号）
+        //重新命名上传文件（课程号）
         String newFile = dirPath+id+".jpg";
 
         try {
@@ -128,15 +124,15 @@ public class TeacherController {
             }
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file1);
-            if (teacher.getPhoto()==null){
-                teacher.setPhoto("https://www.iwchuang.cn/images/teacher/"+id+".jpg");
-                teacherService.update(teacher);
+            if (course.getPhoto()==null){
+                course.setPhoto("https://www.iwchuang.cn/images/course/"+id+".jpg");
+                courseService.update(course);
             }
         }catch (Exception e){
             e.printStackTrace();
             return jsonObject.toJSONString();
         }
-        jsonObject.put("Teacher",JSONObject.toJSON(teacher));
+        jsonObject.put("Course",JSONObject.toJSON(course));
         return jsonObject.toJSONString();
     }
 }

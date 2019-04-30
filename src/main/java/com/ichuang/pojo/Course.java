@@ -3,15 +3,16 @@ package com.ichuang.pojo;
 import java.io.Serializable;
 
 /**
- * 指导老师持久化类
+ * 课程持久化类
  */
-public class Teacher implements Serializable {
+public class Course implements Serializable {
     private String id;
     private String name;
-    private String sex;
-    private String phone;
+    private int chapter_count;//章节数
+    private String teacher_name;
+    private String teacher_id;
     private String introduction;
-    private String photo;//照片地址
+    private String photo;//封面照片地址
     private Integer start;            // 起始行
     private Integer rows;             // 所取行数
 
@@ -31,20 +32,28 @@ public class Teacher implements Serializable {
         this.name = name;
     }
 
-    public String getSex() {
-        return sex;
+    public int getChapter_count() {
+        return chapter_count;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setChapter_count(int chapter_count) {
+        this.chapter_count = chapter_count;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getTeacher_name() {
+        return teacher_name;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTeacher_name(String teacher_name) {
+        this.teacher_name = teacher_name;
+    }
+
+    public String getTeacher_id() {
+        return teacher_id;
+    }
+
+    public void setTeacher_id(String teacher_id) {
+        this.teacher_id = teacher_id;
     }
 
     public String getIntroduction() {
@@ -78,5 +87,4 @@ public class Teacher implements Serializable {
     public void setRows(Integer rows) {
         this.rows = rows;
     }
-
 }

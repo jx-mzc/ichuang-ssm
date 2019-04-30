@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.CourseChapterDao">
+    <!-- 添加课程章节信息 -->
+    <insert id="add" parameterType="CourseChapter">
+        insert into coures_chapter(id,name,number,course_name,course_id,video_path)
+        values (#{id},#{name},#{number},#{course_name},#{course_id},#{video_path});
+    </insert>
+    <!-- 删除课程章节信息 -->
+    <delete id="delete" parameterType="String">
+        delete from course_chapter where id=#{id};
+    </delete>
+    <!-- 修改课程章节信息 -->
+    <update id="update" parameterType="CourseChapter">
+        update course_chapter
+        <set>
+            <if test="name!=null">
+            name=#{name},
+            </if>
+            <if test="number!=null">
+                number=#{number},
+            </if>
+            <if test="video_path!=null">
+                video_path=#{video_path},
+            </if>
+        </set>
+        where id=#{id};
+    </update>
+    <!-- 查找课程章节信息根据id -->
+    <select id="getById" parameterType="String" resultType="CourseChapter">
+        select * from course_chapter where id=#{id};
+    </select>
+    <!-- 查找课程章节信息列表-->
+    <select id="listAll" parameterType="CourseChapter" resultType="CourseChapter">
+        select * from course_chapter
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="name!=null">
+                and name like "%"#{name}"%"
+            </if>
+            <if test="course_name!=null">
+                and course_name=#{course_name}
+            </if>
+            <if test="course_id!=null">
+                and course_id=#{course_id}
+            </if>
+        </where>
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

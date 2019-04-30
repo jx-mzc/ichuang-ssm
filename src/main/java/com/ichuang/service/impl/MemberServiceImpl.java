@@ -57,6 +57,7 @@ public class MemberServiceImpl implements MemberService {
         if (StringUtils.isNoneBlank(club_name)){
             member.setClub_name(club_name);
         }
+        //符合条件的总数量
         int total = (int) new PageInfo<>(memberDao.listAll(member)).getTotal();
         member.setStart((page-1)* rows);
         member.setRows(rows);

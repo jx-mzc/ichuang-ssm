@@ -1,9 +1,8 @@
 package com.ichuang.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.ichuang.pojo.Teacher;
-import com.ichuang.service.AccountService;
-import com.ichuang.service.TeacherService;
+import com.ichuang.pojo.CourseChapter;
+import com.ichuang.service.CourseChapterService;
 import com.ichuang.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,49 +17,47 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * 教师控制器类
+ * 课程章节信息控制器类
  */
 @Controller
-public class TeacherController {
+public class CourseChapterController {
     //依赖注入
     @Autowired
-    private TeacherService teacherService;
-    @Autowired
-    private AccountService accountService;
+    private CourseChapterService courseChapterService;
 
     /**
-     * 通过ID查询教师信息
+     * 通过ID查询课程章节信息
      */
     @ResponseBody
-    @RequestMapping("/getTeacher.action")
+    @RequestMapping("/getCourseChapter.action")
     public String getTeacher(String id){
-        Teacher teacher = teacherService.getById(id);
+        CourseChapter courseChapter = courseChapterService.getById(id);
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Teacher",JSONObject.toJSON(teacher));
+        jsonObject.put("CourseChapter",JSONObject.toJSON(courseChapter));
         return jsonObject.toJSONString();
     }
     /**
-     * 查询教师信息列表
+     * 查询课程章节信息列表
      */
     @ResponseBody
-    @RequestMapping("/listTeacher.action")
+    @RequestMapping("/listCourseChapter.action")
     public String listMember(@RequestParam(defaultValue="1", required=false)Integer page,
                              @RequestParam(defaultValue="10",required=false)Integer rows,
-                             String id,String name,String phone){
-        Page<Teacher>  teacherPage= teacherService.listAll(page,rows,id,name,phone);
-        return JSONObject.toJSON(teacherPage).toString();
+                             String id, String name, String course_name, String course_id){
+        Page<CourseChapter> courseChapterPage= courseChapterService.listAll(page,rows,id,name,course_name,course_id);
+        return JSONObject.toJSON(courseChapterPage).toString();
     }
     /**
-     * 修改教师信息
+     * 修改课程章节信息
      */
     @ResponseBody
-    @RequestMapping("/updateTeacher.action")
-    public String updateMember(@RequestBody Teacher teacher){
-        int rows = teacherService.update(teacher);
-        Teacher teacher1 = teacherService.getById(teacher.getId());
+    @RequestMapping("/updateCourseChapter.action")
+    public String updateMember(@RequestBody CourseChapter courseChapter){
+        int rows = courseChapterService.update(courseChapter);
+        CourseChapter courseChapter1 = courseChapterService.getById(courseChapter.getId());
         if (rows >0){
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("Teacher",JSONObject.toJSON(teacher1));
+            jsonObject.put("CourseChapter",JSONObject.toJSON(courseChapter1));
             return jsonObject.toJSONString();
         }
         else {
@@ -68,16 +65,16 @@ public class TeacherController {
         }
     }
     /**
-     * 添加教师信息
+     * 添加课程章节信息
      */
     @ResponseBody
-    @RequestMapping("/addTeacher.action")
-    public String addMember(@RequestBody Teacher teacher){
-        if (teacherService.getById(teacher.getId())!=null){
-            return "该教师已存在！";
+    @RequestMapping("/addCourseChapter.action")
+    public String addMember(@RequestBody CourseChapter courseChapter){
+        if (courseChapterService.getById(courseChapter.getId())!=null){
+            return "该课程章节已存在！";
         }
         //受影响的行数
-        int rows = teacherService.add(teacher);
+        int rows = courseChapterService.add(courseChapter);
         if (rows > 0){
             return "SUCCESS";
         }
@@ -86,13 +83,12 @@ public class TeacherController {
         }
     }
     /**
-     * 删除教师信息
+     * 删除课程章节信息
      */
     @ResponseBody
-    @RequestMapping("/deleteTeacher.action")
-    public String deleteMember(@RequestBody Teacher teacher){
-        int rows = teacherService.delete(teacher.getId());
-        accountService.deleteAccount(teacher.getId());
+    @RequestMapping("/deleteCourseChapter.action")
+    public String deleteMember(@RequestBody CourseChapter courseChapter){
+        int rows = courseChapterService.delete(courseChapter.getId());
         if (rows > 0){
             return "SUCCESS";
         }else {
@@ -100,43 +96,43 @@ public class TeacherController {
         }
     }
     /**
-     * 执行上传头像
+     * 执行上传课程章节视频
      */
     @ResponseBody
-    @RequestMapping("/uploadTeacherPhoto.action")
+    @RequestMapping("/uploadCourseVideo.action")
     public String uploadMemberPhoto(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
         httpServletRequest.setCharacterEncoding("UTF-8");
         String id = httpServletRequest.getParameter("id");
-        Teacher teacher = teacherService.getById(id);
+        CourseChapter courseChapter = courseChapterService.getById(id);
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Teacher",JSONObject.toJSON(teacher));
-        //设置上传头像的保存地址目录
-        String dirPath = "C:/tomcat/apache-tomcat-9.0.12/webapps/images/teacher/";
+        jsonObject.put("CourseChapter",JSONObject.toJSON(courseChapter));
+        //设置上传视频的保存地址目录
+        String dirPath = "C:/tomcat/apache-tomcat-9.0.12/webapps/video/course/";
         File file = new File(dirPath);
         //如果保存文件的地址不存在，就先创建目录
         if (!file.exists()){
             file.mkdirs();
         }
-        //重新命名上传文件（教师号）
-        String newFile = dirPath+id+".jpg";
+        //重新命名上传文件（课程章节号）
+        String newFile = dirPath+id+".mp4";
 
         try {
-            //删除原来的图片
+            //删除原来的视频
             File file1= new File(newFile);
             if (file1.exists()) {
                 file1.delete();
             }
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file1);
-            if (teacher.getPhoto()==null){
-                teacher.setPhoto("https://www.iwchuang.cn/images/teacher/"+id+".jpg");
-                teacherService.update(teacher);
+            if (courseChapter.getVideo_path()==null){
+                courseChapter.setVideo_path("https://www.iwchuang.cn/video/course/"+id+".mp4");
+                courseChapterService.update(courseChapter);
             }
         }catch (Exception e){
             e.printStackTrace();
             return jsonObject.toJSONString();
         }
-        jsonObject.put("Teacher",JSONObject.toJSON(teacher));
+        jsonObject.put("CourseChapter",JSONObject.toJSON(courseChapter));
         return jsonObject.toJSONString();
     }
 }
