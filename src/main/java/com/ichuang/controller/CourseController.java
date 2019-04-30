@@ -30,7 +30,7 @@ public class CourseController {
      */
     @ResponseBody
     @RequestMapping("/getCourse.action")
-    public String getTeacher(String id){
+    public String getCourse(String id){
         Course course = courseService.getById(id);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("Course",JSONObject.toJSON(course));
@@ -41,7 +41,7 @@ public class CourseController {
      */
     @ResponseBody
     @RequestMapping("/listCourse.action")
-    public String listMember(@RequestParam(defaultValue="1", required=false)Integer page,
+    public String listCourse(@RequestParam(defaultValue="1", required=false)Integer page,
                              @RequestParam(defaultValue="10",required=false)Integer rows,
                              String id, String name, String teacher_name, String teacher_id){
         Page<Course> coursePage= courseService.listAll(page,rows,id,name,teacher_name,teacher_id);
@@ -52,7 +52,7 @@ public class CourseController {
      */
     @ResponseBody
     @RequestMapping("/updateCourse.action")
-    public String updateMember(@RequestBody Course course){
+    public String updateCourse(@RequestBody Course course){
         int rows = courseService.update(course);
         Course course1 = courseService.getById(course.getId());
         if (rows >0){
@@ -69,7 +69,7 @@ public class CourseController {
      */
     @ResponseBody
     @RequestMapping("/addCourse.action")
-    public String addMember(@RequestBody Course course){
+    public String addCourse(@RequestBody Course course){
         if (courseService.getById(course.getId())!=null){
             return "该课程已存在！";
         }
@@ -87,7 +87,7 @@ public class CourseController {
      */
     @ResponseBody
     @RequestMapping("/deleteCourse.action")
-    public String deleteMember(@RequestBody Course course){
+    public String deleteCourse(@RequestBody Course course){
         int rows = courseService.delete(course.getId());
         if (rows > 0){
             return "SUCCESS";
@@ -100,7 +100,7 @@ public class CourseController {
      */
     @ResponseBody
     @RequestMapping("/uploadCoursePhoto.action")
-    public String uploadMemberPhoto(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
+    public String uploadCoursePhoto(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
         httpServletRequest.setCharacterEncoding("UTF-8");
         String id = httpServletRequest.getParameter("id");
         Course course = courseService.getById(id);

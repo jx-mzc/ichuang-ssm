@@ -30,7 +30,7 @@ public class CourseChapterController {
      */
     @ResponseBody
     @RequestMapping("/getCourseChapter.action")
-    public String getTeacher(String id){
+    public String getCourseChapter(String id){
         CourseChapter courseChapter = courseChapterService.getById(id);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("CourseChapter",JSONObject.toJSON(courseChapter));
@@ -41,7 +41,7 @@ public class CourseChapterController {
      */
     @ResponseBody
     @RequestMapping("/listCourseChapter.action")
-    public String listMember(@RequestParam(defaultValue="1", required=false)Integer page,
+    public String listCourseChapter(@RequestParam(defaultValue="1", required=false)Integer page,
                              @RequestParam(defaultValue="10",required=false)Integer rows,
                              String id, String name, String course_name, String course_id){
         Page<CourseChapter> courseChapterPage= courseChapterService.listAll(page,rows,id,name,course_name,course_id);
@@ -52,7 +52,7 @@ public class CourseChapterController {
      */
     @ResponseBody
     @RequestMapping("/updateCourseChapter.action")
-    public String updateMember(@RequestBody CourseChapter courseChapter){
+    public String updateCourseChapter(@RequestBody CourseChapter courseChapter){
         int rows = courseChapterService.update(courseChapter);
         CourseChapter courseChapter1 = courseChapterService.getById(courseChapter.getId());
         if (rows >0){
@@ -69,7 +69,7 @@ public class CourseChapterController {
      */
     @ResponseBody
     @RequestMapping("/addCourseChapter.action")
-    public String addMember(@RequestBody CourseChapter courseChapter){
+    public String addCourseChapter(@RequestBody CourseChapter courseChapter){
         if (courseChapterService.getById(courseChapter.getId())!=null){
             return "该课程章节已存在！";
         }
@@ -87,7 +87,7 @@ public class CourseChapterController {
      */
     @ResponseBody
     @RequestMapping("/deleteCourseChapter.action")
-    public String deleteMember(@RequestBody CourseChapter courseChapter){
+    public String deleteCourseChapter(@RequestBody CourseChapter courseChapter){
         int rows = courseChapterService.delete(courseChapter.getId());
         if (rows > 0){
             return "SUCCESS";
@@ -100,7 +100,7 @@ public class CourseChapterController {
      */
     @ResponseBody
     @RequestMapping("/uploadCourseVideo.action")
-    public String uploadMemberPhoto(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
+    public String uploadCourseVideo(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
         httpServletRequest.setCharacterEncoding("UTF-8");
         String id = httpServletRequest.getParameter("id");
         CourseChapter courseChapter = courseChapterService.getById(id);

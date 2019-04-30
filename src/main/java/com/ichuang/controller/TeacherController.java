@@ -44,7 +44,7 @@ public class TeacherController {
      */
     @ResponseBody
     @RequestMapping("/listTeacher.action")
-    public String listMember(@RequestParam(defaultValue="1", required=false)Integer page,
+    public String listTeacher(@RequestParam(defaultValue="1", required=false)Integer page,
                              @RequestParam(defaultValue="10",required=false)Integer rows,
                              String id,String name,String phone){
         Page<Teacher>  teacherPage= teacherService.listAll(page,rows,id,name,phone);
@@ -55,7 +55,7 @@ public class TeacherController {
      */
     @ResponseBody
     @RequestMapping("/updateTeacher.action")
-    public String updateMember(@RequestBody Teacher teacher){
+    public String updateTeacher(@RequestBody Teacher teacher){
         int rows = teacherService.update(teacher);
         Teacher teacher1 = teacherService.getById(teacher.getId());
         if (rows >0){
@@ -72,7 +72,7 @@ public class TeacherController {
      */
     @ResponseBody
     @RequestMapping("/addTeacher.action")
-    public String addMember(@RequestBody Teacher teacher){
+    public String addTeacher(@RequestBody Teacher teacher){
         if (teacherService.getById(teacher.getId())!=null){
             return "该教师已存在！";
         }
@@ -90,7 +90,7 @@ public class TeacherController {
      */
     @ResponseBody
     @RequestMapping("/deleteTeacher.action")
-    public String deleteMember(@RequestBody Teacher teacher){
+    public String deleteTeacher(@RequestBody Teacher teacher){
         int rows = teacherService.delete(teacher.getId());
         accountService.deleteAccount(teacher.getId());
         if (rows > 0){
@@ -104,7 +104,7 @@ public class TeacherController {
      */
     @ResponseBody
     @RequestMapping("/uploadTeacherPhoto.action")
-    public String uploadMemberPhoto(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
+    public String uploadTeacherPhoto(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
         httpServletRequest.setCharacterEncoding("UTF-8");
         String id = httpServletRequest.getParameter("id");
         Teacher teacher = teacherService.getById(id);

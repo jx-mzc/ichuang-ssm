@@ -26,6 +26,8 @@ public class FreeTime implements Serializable {
     private  String su1;//周日上午
     private  String su2;//周日下午
     private  String su3;//周日晚上
+    private Integer start;            // 起始行
+    private Integer rows;             // 所取行数
 
     public String getId() {
         return id;
@@ -209,5 +211,21 @@ public class FreeTime implements Serializable {
 
     public void setSu3(String su3) {
         this.su3 = su3;
+    }
+
+    public Integer getStart() {
+        return start;
+    }
+
+    public void setStart(Integer start) {
+        this.start = start;
+    }
+
+    public Integer getRows() {
+        return rows;
+    }
+
+    public void setRows(Integer rows) {
+        this.rows = rows;
     }
 }
