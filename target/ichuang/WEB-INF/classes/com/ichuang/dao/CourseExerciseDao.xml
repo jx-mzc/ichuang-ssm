@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.CourseExerciseDao">
+    <!-- 添加课程练习信息 -->
+    <insert id="add" parameterType="CourseExercise">
+        insert into course_exercise(id,question_count,course_name,course_id,name,teacher_id)
+        values (#{id},#{question_count},#{course_name},#{course_id},#{name},#{teacher_id});
+    </insert>
+    <!-- 删除课程练习信息 -->
+    <delete id="delete" parameterType="String">
+        delete from course_exercise where id=#{id};
+    </delete>
+    <!-- 修改课程练习信息 -->
+    <update id="update" parameterType="CourseExercise">
+        update course_exercise
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="question_count!=null">
+                question_count=#{question_count},
+            </if>
+            <if test="course_name!=null">
+                course_name=#{course_name},
+            </if>
+            <if test="teacher_id!=null">
+                teacher_id=#{teacher_id},
+            </if>
+            <if test="course_id!=null">
+                course_id=#{course_id},
+            </if>
+        </set>
+        where id=#{id};
+    </update>
+    <!-- 查找课程练习信息根据id -->
+    <select id="getById" parameterType="String" resultType="CourseExercise">
+        select * from course_exercise where id=#{id};
+    </select>
+    <!-- 查找课程练习信息列表-->
+    <select id="listAll" parameterType="CourseExercise" resultType="CourseExercise">
+        select * from course_exercise
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="name!=null">
+                and name like "%"#{name}"%"
+            </if>
+            <if test="course_name!=null">
+                and course_name=#{course_name}
+            </if>
+            <if test="course_id!=null">
+                and course_id=#{course_id}
+            </if>
+            <if test="teacher_id!=null">
+                and teacher_id=#{teacher_id}
+            </if>
+        </where>
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

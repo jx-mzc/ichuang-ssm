@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.CourseDao">
+    <!-- 添加课程信息 -->
+    <insert id="add" parameterType="Course">
+        insert into course(id,name,chapter_count,teacher_name,teacher_id,introduction,photo)
+        values (#{id},#{name},#{chapter_count},#{teacher_name},#{teacher_id},#{introduction},#{photo});
+    </insert>
+    <!-- 删除课程信息 -->
+    <delete id="delete" parameterType="String">
+        delete from course where id=#{id};
+    </delete>
+    <!-- 修改课程信息 -->
+    <update id="update" parameterType="Course">
+        update course
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="chapter_count!=null">
+                chapter_count=#{chapter_count},
+            </if>
+            <if test="teacher_name!=null">
+                teacher_name=#{teacher_name},
+            </if>
+            <if test="teacher_id!=null">
+                teacher_id=#{teacher_id},
+            </if>
+            <if test="introduction!=null">
+                introduction=#{introduction},
+            </if>
+            <if test="photo!=null">
+                photo=#{photo}
+            </if>
+        </set>
+        where id=#{id};
+    </update>
+    <!-- 查找课程信息根据id -->
+    <select id="getById" parameterType="String" resultType="Course">
+        select * from course where id=#{id};
+    </select>
+    <!-- 查找课程信息列表-->
+    <select id="listAll" parameterType="Course" resultType="Course">
+        select * from course
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="name!=null">
+                and name like "%"#{name}"%"
+            </if>
+            <if test="teacher_name!=null">
+                and teacher_name=#{teacher_name}
+            </if>
+            <if test="teacher_id!=null">
+                and teacher_id=#{teacher_id}
+            </if>
+        </where>
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

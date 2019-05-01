@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.MemberDao">
+    <!-- 添加社员 -->
+    <insert id="add" parameterType="Member">
+        insert into member(
+          id,
+          name,
+          sex,
+          phone,
+          qq,
+          grade,
+          major,
+          interest,
+          school_name,
+          school_id,
+          club_name,
+          club_id,
+          department_name;
+          department_id,
+          birthday,
+          photo
+        ) values (
+          #{id},
+          #{name},
+          #{sex},
+          #{phone},
+          #{qq},
+          #{grade},
+          #{major},
+          #{interest},
+          #{school_name},
+          #{school_id},
+          #{club_name},
+          #{club_id},
+          #{department_name},
+          #{department_id},
+          #{birthday},
+          #{photo}
+        );
+    </insert>
+    <!-- 删除社员 -->
+    <delete id="delete" parameterType="String">
+        delete from member where id=#{id};
+    </delete>
+    <!-- 更新社员 -->
+    <update id="update" parameterType="Member">
+        update member
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="sex!=null">
+                sex=#{sex},
+            </if>
+            <if test="phone">
+                phone=#{phone},
+            </if>
+            <if test="qq!=null">
+                qq=#{qq},
+            </if>
+            <if test="grade!=null">
+                grade=#{grade},
+            </if>
+            <if test="major!=null">
+                major=#{major},
+            </if>
+            <if test="interest!=null">
+                interest=#{interest},
+            </if>
+            <if test="school_name!=null">
+                school_name={school_name},
+            </if>
+            <if test="school_id!=null">
+                school_id=#{school_id},
+            </if>
+            <if test="club_name!=null">
+                club_name=#{club_name},
+            </if>
+            <if test="club_id!=null">
+                club_id=#{club_id},
+            </if>
+            <if test="department_name!=null">
+                department_name=#{department_name},
+            </if>
+            <if test="department_id!=null">
+                department_id=#{department_id},
+            </if>
+            <if test="birthday!=null">
+                birthday=#{birthday},
+            </if>
+            <if test="photo!=null">
+                photo=#{photo},
+            </if>
+        </set>
+        where id=#{id};
+    </update>
+    <!-- 查询社员信息根据id -->
+    <select id="getById" parameterType="String" resultType="Member">
+        select * from member where id=#{id};
+    </select>
+    <!-- 查询所有社员信息 -->
+    <select id="listAll" parameterType="Member" resultType="Member">
+        select * from member
+            <where>
+                <if test="id!=null">
+                    id = #{id}
+                </if>
+                <if test="name!=null">
+                    and name like "%"#{name}"%"
+                </if>
+                <if test="school_name!=null">
+                    and school_name=#{school_name}
+                </if>
+                <if test="club_name!=null">
+                    and club_name=#{club_name}
+                </if>
+                <if test="department_name!=null">
+                    and department_name=#{department_name}
+                </if>
+            </where>
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>
