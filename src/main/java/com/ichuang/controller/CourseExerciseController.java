@@ -24,7 +24,7 @@ public class CourseExerciseController {
      */
     @ResponseBody
     @RequestMapping("/getCourseExercise.action")
-    public String getCourseExercise(String id){
+    public String getCourseExercise(Integer id){
         CourseExercise courseExercise = courseExerciseService.getById(id);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("CourseExercise",JSONObject.toJSON(courseExercise));
@@ -37,7 +37,7 @@ public class CourseExerciseController {
     @RequestMapping("/listCourseExercise.action")
     public String listCourseExercise(@RequestParam(defaultValue="1", required=false)Integer page,
                              @RequestParam(defaultValue="10",required=false)Integer rows,
-                             String id, String name, String course_name, String course_id, String teacher_id){
+                                     Integer id, String name, String course_name, Integer course_id, String teacher_id){
         Page<CourseExercise> courseExercisePage = courseExerciseService.listAll(page,rows,id,name,course_name,course_id,teacher_id);
         return JSONObject.toJSON(courseExercisePage).toString();
     }
@@ -81,8 +81,8 @@ public class CourseExerciseController {
      */
     @ResponseBody
     @RequestMapping("/deleteCourseExercise.action")
-    public String deleteCourseExercise(@RequestBody CourseExercise courseExercise){
-        int rows = courseExerciseService.delete(courseExercise.getId());
+    public String deleteCourseExercise(Integer id){
+        int rows = courseExerciseService.delete(id);
         if (rows > 0){
             return "SUCCESS";
         }else {

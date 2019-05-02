@@ -6,9 +6,10 @@ import java.io.Serializable;
  * 课程持久化类
  */
 public class Course implements Serializable {
-    private String id;
+    private static final long serialVersionUID = 1L;
+    private Integer id;
     private String name;
-    private int chapter_count;//章节数
+    private Integer chapter_count;//章节数
     private String teacher_name;
     private String teacher_id;
     private String introduction;
@@ -16,11 +17,11 @@ public class Course implements Serializable {
     private Integer start;            // 起始行
     private Integer rows;             // 所取行数
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

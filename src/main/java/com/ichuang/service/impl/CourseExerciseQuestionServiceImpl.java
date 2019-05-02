@@ -6,6 +6,7 @@ import com.ichuang.pojo.CourseExerciseQuestion;
 import com.ichuang.service.CourseExerciseQuestionService;
 import com.ichuang.utils.Page;
 import org.apache.commons.lang3.StringUtils;
+import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,7 +29,7 @@ public class CourseExerciseQuestionServiceImpl implements CourseExerciseQuestion
     }
 
     @Override
-    public int delete(String id) {
+    public int delete(Integer id) {
         return this.courseExerciseQuestionDao.delete(id);
     }
 
@@ -38,27 +39,27 @@ public class CourseExerciseQuestionServiceImpl implements CourseExerciseQuestion
     }
 
     @Override
-    public CourseExerciseQuestion getById(String id) {
+    public CourseExerciseQuestion getById(Integer id) {
         return this.courseExerciseQuestionDao.getById(id);
     }
 
     @Override
-    public Page<CourseExerciseQuestion> listAll(Integer page, Integer rows, String id, int number, int score,
-                                                String answer, String exercise_id) {
+    public Page<CourseExerciseQuestion> listAll(Integer page, Integer rows, Integer id, Integer number, Integer score,
+                                                String answer, Integer exercise_id) {
         CourseExerciseQuestion courseExerciseQuestion = new CourseExerciseQuestion();
-        if (StringUtils.isNoneBlank(id)){
+        if (id!=null){
             courseExerciseQuestion.setId(id);
         }
-        if (StringUtils.isNoneBlank(String.valueOf(number))){
+        if (number!=null){
             courseExerciseQuestion.setNumber(number);
         }
-        if (StringUtils.isNoneBlank(String.valueOf(score))){
+        if (score!=null){
             courseExerciseQuestion.setScore(score);
         }
         if (StringUtils.isNoneBlank(answer)){
             courseExerciseQuestion.setAnswer(answer);
         }
-        if (StringUtils.isNoneBlank(exercise_id)){
+        if (exercise_id!=null){
             courseExerciseQuestion.setExercise_id(exercise_id);
         }
         //符合条件的总数量

@@ -30,7 +30,7 @@ public class CourseController {
      */
     @ResponseBody
     @RequestMapping("/getCourse.action")
-    public String getCourse(String id){
+    public String getCourse(Integer id){
         Course course = courseService.getById(id);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("Course",JSONObject.toJSON(course));
@@ -43,7 +43,7 @@ public class CourseController {
     @RequestMapping("/listCourse.action")
     public String listCourse(@RequestParam(defaultValue="1", required=false)Integer page,
                              @RequestParam(defaultValue="10",required=false)Integer rows,
-                             String id, String name, String teacher_name, String teacher_id){
+                             Integer id, String name, String teacher_name, String teacher_id){
         Page<Course> coursePage= courseService.listAll(page,rows,id,name,teacher_name,teacher_id);
         return JSONObject.toJSON(coursePage).toString();
     }
@@ -87,8 +87,8 @@ public class CourseController {
      */
     @ResponseBody
     @RequestMapping("/deleteCourse.action")
-    public String deleteCourse(@RequestBody Course course){
-        int rows = courseService.delete(course.getId());
+    public String deleteCourse(Integer id){
+        int rows = courseService.delete(id);
         if (rows > 0){
             return "SUCCESS";
         }else {
@@ -103,7 +103,7 @@ public class CourseController {
     public String uploadCoursePhoto(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
         httpServletRequest.setCharacterEncoding("UTF-8");
         String id = httpServletRequest.getParameter("id");
-        Course course = courseService.getById(id);
+        Course course = courseService.getById(Integer.valueOf(id));
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("Course",JSONObject.toJSON(course));
         //设置上传头像的保存地址目录

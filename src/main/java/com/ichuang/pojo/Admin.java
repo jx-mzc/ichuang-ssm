@@ -6,6 +6,7 @@ import java.io.Serializable;
  * 后台管理员持久化类
  */
 public class Admin implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String id;//管理员号
     private String name;//管理员名
     private String sex;//性别

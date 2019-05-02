@@ -90,9 +90,9 @@ public class TeacherController {
      */
     @ResponseBody
     @RequestMapping("/deleteTeacher.action")
-    public String deleteTeacher(@RequestBody Teacher teacher){
-        int rows = teacherService.delete(teacher.getId());
-        accountService.deleteAccount(teacher.getId());
+    public String deleteTeacher(String id){
+        int rows = teacherService.delete(id);
+        accountService.deleteAccount(id);
         if (rows > 0){
             return "SUCCESS";
         }else {

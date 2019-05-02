@@ -134,9 +134,9 @@ public class MemberController {
      */
     @ResponseBody
     @RequestMapping("/deleteMember.action")
-    public String deleteMember(@RequestBody Member member){
-        int rows = memberService.delete(member.getId());
-        accountService.deleteAccount(member.getId());
+    public String deleteMember(String id){
+        int rows = memberService.delete(id);
+        accountService.deleteAccount(id);
         if (rows > 0){
             return "SUCCESS";
         }else {

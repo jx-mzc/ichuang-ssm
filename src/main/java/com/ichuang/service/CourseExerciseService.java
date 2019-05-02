@@ -10,11 +10,11 @@ public interface CourseExerciseService {
     //添加课程练习
     int add(CourseExercise courseExercise);
     //删除课程练习
-    int delete(String id);
+    int delete(Integer id);
     //更新课程练习信息
     int update(CourseExercise courseExercise);
     //查询课程练习信息通过id
-    CourseExercise getById( String id);
+    CourseExercise getById( Integer id);
     //查询满足条件的课程练习信息列表
-    Page<CourseExercise> listAll(Integer page, Integer rows, String id, String name, String course_name, String course_id,String teacher_id);
+    Page<CourseExercise> listAll(Integer page, Integer rows, Integer id, String name, String course_name, Integer course_id,String teacher_id);
 }

@@ -28,7 +28,7 @@ public class CourseChapterServiceImpl implements CourseChapterService {
     }
 
     @Override
-    public int delete(String id) {
+    public int delete(Integer id) {
         return this.courseChapterDao.delete(id);
     }
 
@@ -38,14 +38,14 @@ public class CourseChapterServiceImpl implements CourseChapterService {
     }
 
     @Override
-    public CourseChapter getById(String id) {
+    public CourseChapter getById(Integer id) {
         return this.getById(id);
     }
 
     @Override
-    public Page<CourseChapter> listAll(Integer page, Integer rows, String id, String name, String course_name, String course_id) {
+    public Page<CourseChapter> listAll(Integer page, Integer rows, Integer id, String name, String course_name, Integer course_id) {
         CourseChapter courseChapter = new CourseChapter();
-        if (StringUtils.isNoneBlank(id)){
+        if (id!=null){
             courseChapter.setId(id);
         }
         if (StringUtils.isNoneBlank(name)){
@@ -54,7 +54,7 @@ public class CourseChapterServiceImpl implements CourseChapterService {
         if (StringUtils.isNoneBlank(course_name)){
             courseChapter.setCourse_name(course_name);
         }
-        if (StringUtils.isNoneBlank(course_id)){
+        if (course_id!=null){
             courseChapter.setCourse_id(course_id);
         }
         //符合条件的总数量

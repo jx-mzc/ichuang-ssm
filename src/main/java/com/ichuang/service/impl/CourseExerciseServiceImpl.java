@@ -27,7 +27,7 @@ public class CourseExerciseServiceImpl implements CourseExerciseService {
     }
 
     @Override
-    public int delete(String id) {
+    public int delete(Integer id) {
         return this.courseExerciseDao.delete(id);
     }
 
@@ -37,15 +37,15 @@ public class CourseExerciseServiceImpl implements CourseExerciseService {
     }
 
     @Override
-    public CourseExercise getById(String id) {
+    public CourseExercise getById(Integer id) {
         return this.courseExerciseDao.getById(id);
     }
 
     @Override
-    public Page<CourseExercise> listAll(Integer page, Integer rows, String id, String name, String course_name,
-                                        String course_id, String teacher_id) {
+    public Page<CourseExercise> listAll(Integer page, Integer rows, Integer id, String name, String course_name,
+                                        Integer course_id, String teacher_id) {
         CourseExercise courseExercise = new CourseExercise();
-        if (StringUtils.isNoneBlank(id)){
+        if (id!=null){
             courseExercise.setId(id);
         }
         if (StringUtils.isNoneBlank(name)){
@@ -54,7 +54,7 @@ public class CourseExerciseServiceImpl implements CourseExerciseService {
         if (StringUtils.isNoneBlank(course_name)){
             courseExercise.setCourse_name(course_name);
         }
-        if (StringUtils.isNoneBlank(course_id)){
+        if (course_id!=null){
             courseExercise.setCourse_id(course_id);
         }
         if (StringUtils.isNoneBlank(teacher_id)){

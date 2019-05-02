@@ -10,11 +10,11 @@ public interface CourseService {
     //添加课程
     int add(Course course);
     //删除课程
-    int delete(String id);
+    int delete(Integer id);
     //更新课程信息
     int update(Course course);
     //查询课程信息通过id
-    Course getById( String id);
+    Course getById( Integer id);
     //查询满足条件的课程信息列表
-    Page<Course> listAll(Integer page, Integer rows, String id, String name, String teacher_name, String teacher_id);
+    Page<Course> listAll(Integer page, Integer rows, Integer id, String name, String teacher_name, String teacher_id);
 }

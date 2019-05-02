@@ -3,6 +3,7 @@ package com.ichuang.pojo;
 import java.io.Serializable;
 
 public class FreeTime implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String id;//空闲号
     private String member_id;//社员学号
     private  String m1;//周一上午

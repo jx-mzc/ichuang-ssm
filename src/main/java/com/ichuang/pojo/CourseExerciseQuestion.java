@@ -6,28 +6,29 @@ import java.io.Serializable;
  * 课程练习问题持久化类
  */
 public class CourseExerciseQuestion implements Serializable {
-    private String id;
-    private int number;     //题号
+    private static final long serialVersionUID = 1L;
+    private Integer id;
+    private Integer number;     //题号
     private String question;
-    private int score;      //分值
+    private Integer score;      //分值
     private String choice_A;
     private String choice_B;
     private String choice_C;
     private String choice_D;
     private String answer;  //答案
-    private String exercise_id;
+    private Integer exercise_id;
     private Integer start;            // 起始行
     private Integer rows;             // 所取行数
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
@@ -43,7 +44,7 @@ public class CourseExerciseQuestion implements Serializable {
         this.question = question;
     }
 
-    public int getScore() {
+    public Integer getScore() {
         return score;
     }
 
@@ -91,11 +92,11 @@ public class CourseExerciseQuestion implements Serializable {
         this.answer = answer;
     }
 
-    public String getExercise_id() {
+    public Integer getExercise_id() {
         return exercise_id;
     }
 
-    public void setExercise_id(String exercise_id) {
+    public void setExercise_id(Integer exercise_id) {
         this.exercise_id = exercise_id;
     }
 

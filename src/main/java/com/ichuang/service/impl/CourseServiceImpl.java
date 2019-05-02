@@ -29,7 +29,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public int delete(String id) {
+    public int delete(Integer id) {
         return this.courseDao.delete(id);
     }
 
@@ -39,14 +39,14 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course getById(String id) {
+    public Course getById(Integer id) {
         return this.courseDao.getById(id);
     }
 
     @Override
-    public Page<Course> listAll(Integer page, Integer rows, String id, String name, String teacher_name, String teacher_id) {
+    public Page<Course> listAll(Integer page, Integer rows, Integer id, String name, String teacher_name, String teacher_id) {
         Course course = new Course();
-        if (StringUtils.isNoneBlank(id)){
+        if (id!=null){
             course.setId(id);
         }
         if (StringUtils.isNoneBlank(name)){

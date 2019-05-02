@@ -7,20 +7,21 @@ import java.io.Serializable;
  * 课程练习持久化类
  */
 public class CourseExercise implements Serializable {
-    private String id;
+    private static final long serialVersionUID = 1L;
+    private Integer id;
     private String question_count;
     private String course_name;
-    private String course_id;
+    private Integer course_id;
     private String name;
     private String teacher_id;
     private Integer start;            // 起始行
     private Integer rows;             // 所取行数
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -40,11 +41,11 @@ public class CourseExercise implements Serializable {
         this.course_name = course_name;
     }
 
-    public String getCourse_id() {
+    public Integer getCourse_id() {
         return course_id;
     }
 
-    public void setCourse_id(String course_id) {
+    public void setCourse_id(Integer course_id) {
         this.course_id = course_id;
     }
 

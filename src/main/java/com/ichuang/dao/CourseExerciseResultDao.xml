@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.CourseExerciseResultDao">
+    <!-- 添加课程练习结果信息 -->
+    <insert id="add" parameterType="CourseExerciseResult">
+        insert into course_exercise_result(exercise_name,exercise_id,member_name,member_id,score,point)
+        values (#{exercise_name},#{exercise_id},#{member_name},#{member_id},#{score},#{point});
+    </insert>
+    <!-- 删除课程练习结果信息 -->
+    <delete id="delete" parameterType="Integer">
+        delete from course_exercise_result where id=#{id};
+    </delete>
+    <!-- 修改课程练习结果信息 -->
+    <update id="update" parameterType="CourseExerciseResult">
+        update course_exercise_result
+        <set>
+            <if test="exercise_name!=null">
+                exercise_name=#{exercise_name},
+            </if>
+            <if test="exercise_id!=null">
+                exercise_id=#{exercise_id},
+            </if>
+            <if test="member_name!=null">
+                member_name=#{member_name},
+            </if>
+            <if test="member_id!=null">
+                member_id=#{member_id},
+            </if>
+            <if test="score!=null">
+                score=#{score},
+            </if>
+            <if test="point!=null">
+                point=#{point},
+            </if>
+        </set>
+        where id=#{id};
+    </update>
+    <!-- 查找课程练习结果信息根据id -->
+    <select id="getById" parameterType="Integer" resultType="CourseExerciseResult">
+        select * from course_exercise_result where id=#{id};
+    </select>
+    <!-- 查找课程练习信息列表-->
+    <select id="listAll" parameterType="CourseExerciseResult" resultType="CourseExerciseResult">
+        select * from course_exercise_result
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="exercise_name!=null">
+                and exercise_name like "%"#{exercise_name}"%"
+            </if>
+            <if test="exercise_id!=null">
+                and exercise_id=#{exercise_id}
+            </if>
+            <if test="member_name!=null">
+                and member_name like "%"#{member_name}"%"
+            </if>
+            <if test="member_id!=null">
+                and member_id=#{member_id}
+            </if>
+            <if test="score!=null">
+                and score=#{score}
+            </if>
+            <if test="point!=null">
+                and point=#{point}
+            </if>
+        </where>
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

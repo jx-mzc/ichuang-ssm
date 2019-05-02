@@ -11,11 +11,11 @@ public interface CourseChapterService {
     //添加课程章节
     int add(CourseChapter courseChapter);
     //删除课程章节
-    int delete(String id);
+    int delete(Integer id);
     //更新课程章节信息
     int update(CourseChapter courseChapter);
     //查询课程章节信息通过id
-    CourseChapter getById( String id);
+    CourseChapter getById( Integer id);
     //查询满足条件的课程章节信息列表
-    Page<CourseChapter> listAll(Integer page, Integer rows, String id, String name, String course_name, String course_id);
+    Page<CourseChapter> listAll(Integer page, Integer rows, Integer id, String name, String course_name, Integer course_id);
 }

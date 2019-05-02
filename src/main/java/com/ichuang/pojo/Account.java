@@ -6,9 +6,10 @@ import java.io.Serializable;
  * 账户持久化类
  */
 public class Account implements Serializable{
+    private static final long serialVersionUID = 1L;
     private String account;//账号
     private String password;//密码
-    private int types;//账户类型
+    private Integer types;//账户类型
 
     public String getAccount() {
         return account;
@@ -30,7 +31,7 @@ public class Account implements Serializable{
         return types;
     }
 
-    public void setTypes(int types) {
+    public void setTypes(Integer types) {
         this.types = types;
     }
 }

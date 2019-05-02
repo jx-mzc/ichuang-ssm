@@ -6,20 +6,21 @@ import java.io.Serializable;
  * 课程章节持久化类
  */
 public class CourseChapter implements Serializable {
-    private String id;
+    private static final long serialVersionUID = 1L;
+    private Integer id;
     private String name;
-    private int number;  //第几章节
+    private Integer number;  //第几章节
     private String course_name;
-    private String course_id;
+    private Integer course_id;
     private String video_path;   //视频地址
     private Integer start;            // 起始行
     private Integer rows;             // 所取行数
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -47,11 +48,11 @@ public class CourseChapter implements Serializable {
         this.course_name = course_name;
     }
 
-    public String getCourse_id() {
+    public Integer getCourse_id() {
         return course_id;
     }
 
-    public void setCourse_id(String course_id) {
+    public void setCourse_id(Integer course_id) {
         this.course_id = course_id;
     }
 

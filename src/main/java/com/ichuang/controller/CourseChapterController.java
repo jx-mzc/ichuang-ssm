@@ -30,7 +30,7 @@ public class CourseChapterController {
      */
     @ResponseBody
     @RequestMapping("/getCourseChapter.action")
-    public String getCourseChapter(String id){
+    public String getCourseChapter(Integer id){
         CourseChapter courseChapter = courseChapterService.getById(id);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("CourseChapter",JSONObject.toJSON(courseChapter));
@@ -43,7 +43,7 @@ public class CourseChapterController {
     @RequestMapping("/listCourseChapter.action")
     public String listCourseChapter(@RequestParam(defaultValue="1", required=false)Integer page,
                              @RequestParam(defaultValue="10",required=false)Integer rows,
-                             String id, String name, String course_name, String course_id){
+                                    Integer id, String name, String course_name, Integer course_id){
         Page<CourseChapter> courseChapterPage= courseChapterService.listAll(page,rows,id,name,course_name,course_id);
         return JSONObject.toJSON(courseChapterPage).toString();
     }
@@ -87,8 +87,8 @@ public class CourseChapterController {
      */
     @ResponseBody
     @RequestMapping("/deleteCourseChapter.action")
-    public String deleteCourseChapter(@RequestBody CourseChapter courseChapter){
-        int rows = courseChapterService.delete(courseChapter.getId());
+    public String deleteCourseChapter(Integer id){
+        int rows = courseChapterService.delete(id);
         if (rows > 0){
             return "SUCCESS";
         }else {
@@ -103,7 +103,7 @@ public class CourseChapterController {
     public String uploadCourseVideo(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
         httpServletRequest.setCharacterEncoding("UTF-8");
         String id = httpServletRequest.getParameter("id");
-        CourseChapter courseChapter = courseChapterService.getById(id);
+        CourseChapter courseChapter = courseChapterService.getById(Integer.valueOf(id));
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("CourseChapter",JSONObject.toJSON(courseChapter));
         //设置上传视频的保存地址目录
