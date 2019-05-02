@@ -7,7 +7,7 @@ import java.io.Serializable;
  * 课程练习持久化类
  */
 public class CourseExercise implements Serializable {
-    private static final long serialVersionUID = 1L;
+
     private Integer id;
     private String question_count;
     private String course_name;

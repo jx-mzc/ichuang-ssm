@@ -6,7 +6,7 @@ import java.io.Serializable;
  * 课程章节持久化类
  */
 public class CourseChapter implements Serializable {
-    private static final long serialVersionUID = 1L;
+
     private Integer id;
     private String name;
     private Integer number;  //第几章节

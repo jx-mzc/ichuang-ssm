@@ -6,7 +6,7 @@ import java.io.Serializable;
  * 课程练习结果持久化类
  */
 public class CourseExerciseResult implements Serializable {
-    private static final long serialVersionUID = 1L;
+
     private Integer id;
     private String exercise_name;
     private Integer exercise_id;
@@ -17,9 +17,6 @@ public class CourseExerciseResult implements Serializable {
     private Integer start;            // 起始行
     private Integer rows;             // 所取行数
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Integer getId() {
         return id;
