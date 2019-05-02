@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.FreeTimeDao">
+    <!-- 添加空闲时间信息 -->
+    <insert id="addFreeTime" parameterType="FreeTime">
+        insert into freetime(id,member_id,m1,m2,m3,tu1,tu2,tu3,w1,w2,w3,th1,th2,th3,f1,f2,f3,sa1,sa2,sa3,su1,su2,su3)
+        values (#{id},#{member_id},#{m1},#{m2},#{m3},#{tu1},#{tu2},#{tu3},#{w1},#{w2},#{w3},#{th1},#{th2},#{th3} ,#{f1},#{f2},#{f3},#{sa1},#{sa2},#{sa3},#{su1},#{su2},#{su3})
+    </insert>
+    <select id="getFreeTime" parameterType="String" resultType="FreeTime">
+        select * from freetime where member_id = #{member_id}
+    </select>
+</mapper>
