@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.TestExerciseDao">
+    <!-- 添加考核信息 -->
+    <insert id="add" parameterType="TestExercise">
+        insert into assessment(name,question_count,post_name,post_id)
+        values (#{name},#{question_count},#{post_name},#{post_id}});
+    </insert>
+    <!-- 删除考核信息 -->
+    <delete id="delete" parameterType="Integer">
+        delete from assessment where id=#{id};
+    </delete>
+    <!-- 修改考核信息 -->
+    <update id="update" parameterType="TestExercise">
+        update assessment
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="question_count!=null">
+                question_count=#{question_count},
+            </if>
+            <if test="post_name!=null">
+                course_name=#{post_name},
+            </if>
+            <if test="post_id!=null">
+                teacher_id=#{post_id},
+            </if>
+        </set>
+        where id=#{id};
+    </update>
+    <!-- 查找考核信息根据id -->
+    <select id="getById" parameterType="Integer" resultType="TestExercise">
+        select * from assessment where id=#{id};
+    </select>
+    <!-- 查找考核信息列表-->
+    <select id="listAll" parameterType="CourseExercise" resultType="TestExercise">
+        select * from assessment
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="name!=null">
+                and name like "%"#{name}"%"
+            </if>
+            <if test="question_count!=null">
+                and question_count=#{question_count}
+            </if>
+            <if test="post_id!=null">
+                and post_id=#{post_id}
+            </if>
+            <if test="post_name!=null">
+                and post_name=#{post_name}
+            </if>
+        </where>
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

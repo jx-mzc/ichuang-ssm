@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.TestExerciseQuestionDao">
+    <!-- 添加考核题目信息 -->
+    <insert id="add" parameterType="TestExerciseQuestion">
+        insert into assessment_question(number,question,score,choice_A,choice_B,choice_C,choice_D,answer,assessment_id)
+        values (#{number},#{question},#{score},#{choice_A},#{choice_B},#{choice_C},#{choice_D},#{answer},#{assessment_id});
+    </insert>
+    <!-- 删除考核题目信息 -->
+    <delete id="delete" parameterType="Integer">
+        delete from assessment_question where id=#{id};
+    </delete>
+    <!-- 修改考核题目信息 -->
+    <update id="update" parameterType="CourseExerciseQuestion">
+        update assessment_question
+        <set>
+            <if test="number!=null">
+                number=#{number},
+            </if>
+            <if test="question!=null">
+                question=#{question},
+            </if>
+            <if test="score!=null">
+                score=#{score},
+            </if>
+            <if test="choice_A!=null">
+                choice_A=#{choice_A},
+            </if>
+            <if test="choice_B!=null">
+                choice_B=#{choice_B},
+            </if>
+            <if test="choice_C!=null">
+                choice_C=#{choice_C},
+            </if>
+            <if test="choice_D!=null">
+                choice_D=#{choice_D},
+            </if>
+            <if test="answer!=null">
+                answer=#{answer},
+            </if>
+            <if test="assessment_id!=null">
+                assessment_id=#{assessment_id},
+            </if>
+        </set>
+        where id=#{id};
+    </update>
+    <!-- 查找考核题目信息根据id -->
+    <select id="getById" parameterType="Integer" resultType="TestExerciseQuestion">
+        select * from assessment_question where id=#{id};
+    </select>
+    <!-- 查找考核题目信息列表-->
+    <select id="listAll" parameterType="TestExerciseQuestion" resultType="TestExerciseQuestion">
+        select * from assessment_question
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="number!=null">
+                and number=#{number}
+            </if>
+            <if test="score!=null">
+                and score=#{score}
+            </if>
+            <if test="answer!=null">
+                and answer=#{answer}
+            </if>
+            <if test="assessment_id!=null">
+                and assessment_id=#{assessment_id}
+            </if>
+        </where>
+        <!-- 按题号升序排列 -->
+        order by number ,id
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

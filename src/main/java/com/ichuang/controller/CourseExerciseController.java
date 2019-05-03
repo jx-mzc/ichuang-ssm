@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class CourseExerciseController {
-    //依赖注入
+       //依赖注入
     @Autowired
     private CourseExerciseService courseExerciseService;
     /**
@@ -36,7 +36,7 @@ public class CourseExerciseController {
     @ResponseBody
     @RequestMapping("/listCourseExercise.action")
     public String listCourseExercise(@RequestParam(defaultValue="1", required=false)Integer page,
-                             @RequestParam(defaultValue="10",required=false)Integer rows,
+                                     @RequestParam(defaultValue="10",required=false)Integer rows,
                                      Integer id, String name, String course_name, Integer course_id, String teacher_id){
         Page<CourseExercise> courseExercisePage = courseExerciseService.listAll(page,rows,id,name,course_name,course_id,teacher_id);
         return JSONObject.toJSON(courseExercisePage).toString();
