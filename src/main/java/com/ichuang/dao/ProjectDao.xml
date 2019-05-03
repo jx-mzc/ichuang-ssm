@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.ProjectDao">
+    <!-- 添加创业项目信息 -->
+    <insert id="add" parameterType="Project">
+        insert into project(name,start_time,end_time,post_name,post_id,type,rank,introduction,photo,project_file)
+        values (#{name},#{start_time},#{end_time},#{post_name},#{post_id},#{type},#{rank},#{introduction},#{photo},#{project_file});
+    </insert>
+    <!-- 删除创业项目信息 -->
+    <delete id="delete" parameterType="Integer">
+        delete from project where id=#{id};
+    </delete>
+    <!-- 修改创业项目信息 -->
+    <update id="update" parameterType="Project">
+        update project
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="start_time!=null">
+                start_time=#{start_time},
+            </if>
+            <if test="end_time!=null">
+                end_time=#{end_time},
+            </if>
+            <if test="post_name!=null">
+                post_name=#{post_name},
+            </if>
+            <if test="post_id!=null">
+                post_id=#{post_id},
+            </if>
+            <if test="type!=null">
+                type=#{type},
+            </if>
+            <if test="rank!=null">
+                rank=#{rank},
+            </if>
+            <if test="introduction!=null">
+                introduction=#{introduction},
+            </if>
+            <if test="photo!=null">
+                photo=#{photo},
+            </if>
+            <if test="project_file!=null">
+                project_file=#{project_file},
+            </if>
+        </set>
+        where id=#{id};
+    </update>
+    <!-- 查找创业项目信息根据id -->
+    <select id="getById" parameterType="Integer" resultType="Project">
+        select * from project where id=#{id};
+    </select>
+    <!-- 查找创业项目信息列表-->
+    <select id="listAll" parameterType="Project" resultType="Project">
+        select * from project
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="name!=null">
+                and name like "%"#{name}"%"
+            </if>
+            <if test="start_time!=null">
+                and start_time=#{start_time}
+            </if>
+            <if test="end_time!=null">
+                and end_time=#{end_time}
+            </if>
+            <if test="post_name!=null">
+                and post like "%"#{post}"%"
+            </if>
+            <if test="post_id!=null">
+                and post_id=#{post_id}
+            </if>
+            <if test="type!=null">
+                and type=#{type}
+            </if>
+            <if test="rank!=null">
+                and rank=#{rank}
+            </if>
+        </where>
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

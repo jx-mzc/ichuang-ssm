@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.ProjectApplyDao">
+    <!-- 添加创业项目申请信息 -->
+    <insert id="add" parameterType="ProjectApply">
+        insert into project_apply(project_name,project_id,apply_name,apply_id,status,apply_file)
+        values (#{project_name},#{project_id},#{apply_name},#{apply_id},#{status},#{apply_file});
+    </insert>
+    <!-- 删除创业项目申请信息 -->
+    <delete id="delete" parameterType="Integer">
+        delete from project_apply where id=#{id};
+    </delete>
+    <!-- 修改创业项目申请信息 -->
+    <update id="update" parameterType="ProjectApply">
+        update project_apply
+        <set>
+            <if test="project_name!=null">
+                project_name=#{project_name},
+            </if>
+            <if test="project_id!=null">
+                project_id=#{project_id},
+            </if>
+            <if test="apply_name!=null">
+                apply_name=#{apply_name},
+            </if>
+            <if test="apply_id!=null">
+                apply_id=#{apply_id},
+            </if>
+            <if test="status!=null">
+                status=#{status},
+            </if>
+            <if test="apply_file!=null">
+                apply_file=#{apply_file},
+            </if>
+        </set>
+        where id=#{id};
+    </update>
+    <!-- 查找创业项目申请信息根据id -->
+    <select id="getById" parameterType="Integer" resultType="ProjectApply">
+        select * from project_apply where id=#{id};
+    </select>
+    <!-- 查找创业项目信息列表-->
+    <select id="listAll" parameterType="ProjectApply" resultType="ProjectApply">
+        select * from project_apply
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="project_name!=null">
+                and project_name like "%"#{project_name}"%"
+            </if>
+            <if test="project_id!=null">
+                and project_id=#{project_id}
+            </if>
+            <if test="apply_name!=null">
+                and apply_name like "%"#{apply_name}"%"
+            </if>
+            <if test="apply_id!=null">
+                and apply_id=#{apply_id}
+            </if>
+            <if test="status!=null">
+                and status=#{status}
+            </if>
+        </where>
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

@@ -78,8 +78,12 @@ public class MemberController {
         if (!file.exists()){
             file.mkdirs();
         }
+        //获取上传文件的原始名称
+        String originalFilename = multipartFile.getOriginalFilename();
+        //获取上传文件的后缀
+        String prefix = originalFilename.substring(originalFilename.lastIndexOf(".")+1);
         //重新命名上传文件（学号）
-        String newFile = dirPath+id+".jpg";
+        String newFile = dirPath+id+"."+prefix;
 
         try {
             //删除原来的图片
@@ -90,7 +94,7 @@ public class MemberController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file1);
             if (member.getPhoto()==null){
-                member.setPhoto("https://www.iwchuang.cn/images/member/"+id+".jpg");
+                member.setPhoto("https://www.iwchuang.cn/images/member/"+id+"."+prefix);
                 memberService.update(member);
             }
         }catch (Exception e){
