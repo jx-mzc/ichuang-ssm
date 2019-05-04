@@ -11,7 +11,7 @@ public class ProjectApply implements Serializable {
     private Integer project_id;
     private String apply_name;
     private String apply_id;
-    private Integer status;  //申请状态（）
+    private Integer status;  //申请状态（1为申请中，2为申请成功，3为申请失败）
     private String apply_file;
     private Integer start;            // 起始行
     private Integer rows;             // 所取行数
