@@ -1,19 +1,17 @@
 package com.ichuang.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.pagehelper.PageInfo;
 import com.ichuang.pojo.Admin;
 import com.ichuang.service.AdminService;
 import com.ichuang.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -49,8 +47,18 @@ public class AdminController {
     @ResponseBody
     @RequestMapping("/listAdmin.action")
     public String listAdmin(@RequestParam(defaultValue="1",required=false)Integer page,
-                            @RequestParam(defaultValue="10",required=false)Integer rows,String name){
-       Page<Admin> admins = adminService.listAll(page,rows,name);
+                            @RequestParam(defaultValue="10",required=false)Integer rows,String name,String id){
+       Page<Admin> admins = adminService.listAll(page,rows,name,id);
        return JSONObject.toJSON(admins).toString();
+    }
+    /**
+     * 查找所有管理员信息后台管理平台显示
+     */
+    @RequestMapping("/listAdmins.action")
+    public String listAdmins(@RequestParam(defaultValue="1",required=false)Integer page,
+                             @RequestParam(defaultValue="10",required=false)Integer rows, String name,String id,Model model){
+        Page<Admin> admins = adminService.listAll(page,rows,name,id);
+        model.addAttribute("page",admins);
+        return "admin";
     }
 }

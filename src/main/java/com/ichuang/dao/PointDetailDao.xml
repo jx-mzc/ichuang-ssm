@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.PointDetailDao">
+    <!-- 添加积分明细 -->
+    <insert id="add" parameterType="PointDetail">
+        insert into point_detail (point_id,point_name,time,count)
+        values (#{point_id},#{point_name},#{time},#{count});
+    </insert>
+    <!-- 删除积分明细 -->
+    <delete id="delete" parameterType="Integer">
+        delete from point_detail where id=#{id};
+    </delete>
+    <!-- 更新积分明细 -->
+    <update id="update" parameterType="PointDetail">
+        update point_detail
+        <set>
+            <if test="point_id!=null">
+                point_id=#{point_id},
+            </if>
+            <if test="point_name!=null">
+                point_name=#{point_name},
+            </if>
+            <if test="time!=null">
+                time=#{time},
+            </if>
+            <if test="count!=null">
+                count=#{count},
+            </if>
+        </set>
+        where id=#{id};
+    </update>
+    <!-- 查询积分明细根据id -->
+    <select id="getById" parameterType="Integer" resultType="PointDetail">
+        select * from point_detail where id=#{id};
+    </select>
+    <!-- 查询所有积分明细信息 -->
+    <select id="listAll" resultType="PointDetail" parameterType="PointDetail">
+        select * from point_detail
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="point_id!=null">
+                point_id = #{point_id}
+            </if>
+            <if test="point_name!=null">
+                point_name like "%"#{point_name}"%"
+            </if>
+            <if test="time!=null">
+                time like "%"#{time}"%"
+            </if>
+            <if test="count!=null">
+                count = #{count}
+            </if>
+        </where>
+        order by id desc
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

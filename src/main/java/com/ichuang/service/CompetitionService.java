@@ -17,5 +17,5 @@ public interface CompetitionService {
     Competition getById( Integer id);
     //查询满足条件的创业大赛信息列表
     Page<Competition> listAll(Integer page, Integer rows, Integer id, String name, String start_time,
-                           String end_time, String post, String hold,String rank);
+                              String end_time, String post, String hold, String rank);
 }

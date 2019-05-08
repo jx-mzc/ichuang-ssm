@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class FreeTime implements Serializable {
 
-    private String id;//空闲号
+    private String id;//空闲号(和用户id一致)
     private String member_id;//社员学号
     private  String m1;//周一上午
     private  String m2;//周一下午

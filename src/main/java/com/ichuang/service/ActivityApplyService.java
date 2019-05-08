@@ -17,5 +17,5 @@ public interface ActivityApplyService {
     ActivityApply getById( Integer id);
     //查询满足条件的创业活动申请信息列表
     Page<ActivityApply> listAll(Integer page, Integer rows, Integer id, String activity_name, Integer activity_id,
-                           String apply_name, String apply_id);
+                                String apply_name, String apply_id);
 }

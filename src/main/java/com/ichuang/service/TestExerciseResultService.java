@@ -15,6 +15,6 @@ public interface TestExerciseResultService {
     TestExerciseResult getById( Integer id);
     //查询满足条件的考核信息列表
     Page<TestExerciseResult> listAll(Integer page, Integer rows, Integer id, String assessment_name, Integer assessment_id,
-                               String member_name,String member_id,Integer score);
+                                     String member_name, String member_id, Integer score);
 }
 

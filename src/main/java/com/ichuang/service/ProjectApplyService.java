@@ -17,5 +17,5 @@ public interface ProjectApplyService {
     ProjectApply getById( Integer id);
     //查询满足条件的创业项目申请信息列表
     Page<ProjectApply> listAll(Integer page, Integer rows, Integer id, String project_name, Integer project_id,
-                                String apply_name, String apply_id,Integer status);
+                               String apply_name, String apply_id, Integer status);
 }

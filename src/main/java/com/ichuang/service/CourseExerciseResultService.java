@@ -17,5 +17,5 @@ public interface CourseExerciseResultService {
     CourseExerciseResult getById( Integer id);
     //查询满足条件的课程练习结果信息列表
     Page<CourseExerciseResult> listAll(Integer page, Integer rows, Integer id, String exercise_name, Integer exercise_id,
-                                       String member_name,String member_id,Integer score,Integer point);
+                                       String member_name, String member_id, Integer score, Integer point);
 }

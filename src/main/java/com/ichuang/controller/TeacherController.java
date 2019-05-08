@@ -47,7 +47,7 @@ public class TeacherController {
     public String listTeacher(@RequestParam(defaultValue="1", required=false)Integer page,
                              @RequestParam(defaultValue="10",required=false)Integer rows,
                              String id,String name,String phone){
-        Page<Teacher>  teacherPage= teacherService.listAll(page,rows,id,name,phone);
+        Page<Teacher> teacherPage= teacherService.listAll(page,rows,id,name,phone);
         return JSONObject.toJSON(teacherPage).toString();
     }
     /**

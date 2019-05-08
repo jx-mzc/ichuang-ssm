@@ -23,7 +23,7 @@ public class NavigationTag extends TagSupport {
 	/**
 	 * 显示页码数量
 	 */
-	private int number = 5;
+	private int numbers = 5;
 
 	@Override
 	public int doStartTag() throws JspException {
@@ -66,7 +66,7 @@ writer.print("<li class=\"disabled\"><a href=\"#\">" + "上一页 </a></li>");
 			}else{
 				indexPage= page.getPage() - 2;
 			}
-    for (int i= 1;i <= number && indexPage <= pageCount;indexPage++,i++){
+    for (int i= 1;i <= numbers && indexPage <= pageCount;indexPage++,i++){
 				if (indexPage == page.getPage()) {
 			writer.print("<li class=\"active\"><a href=\"#\">" + indexPage
 				+"<spanclass=\"sr-only\"></span></a></li>");
@@ -148,7 +148,7 @@ writer.print("<li class=\"disabled\"><a href=\"#\">" + "尾页</a></li>");
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	public void setNumber(int number) {
-		this.number = number;
+	public void setNumbers(int numbers) {
+		this.numbers = numbers;
 	}
 }    

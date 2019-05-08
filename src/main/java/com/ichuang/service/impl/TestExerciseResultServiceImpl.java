@@ -2,7 +2,6 @@ package com.ichuang.service.impl;
 
 import com.github.pagehelper.PageInfo;
 import com.ichuang.dao.TestExerciseResultDao;
-import com.ichuang.pojo.TestExercise;
 import com.ichuang.pojo.TestExerciseResult;
 import com.ichuang.service.TestExerciseResultService;
 import com.ichuang.utils.Page;
@@ -47,7 +46,7 @@ public class TestExerciseResultServiceImpl implements TestExerciseResultService 
 
     @Override
     public Page<TestExerciseResult> listAll(Integer page, Integer rows, Integer id, String assessment_name, Integer assessment_id,
-                                              String member_name, String member_id, Integer score) {
+                                            String member_name, String member_id, Integer score) {
         TestExerciseResult testExerciseResult = new TestExerciseResult();
         if (id!=null){
             testExerciseResult.setId(id);

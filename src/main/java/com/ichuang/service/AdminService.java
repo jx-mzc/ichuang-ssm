@@ -3,8 +3,6 @@ package com.ichuang.service;
 import com.ichuang.pojo.Admin;
 import com.ichuang.utils.Page;
 
-import java.util.List;
-
 /**
  * 管理员Service层接口
  */
@@ -18,5 +16,5 @@ public interface AdminService {
     //查询管理员信息
     Admin getById( String id);
     //查询所有管理员信息
-    Page<Admin> listAll(Integer page,Integer rows,String name);
+    Page<Admin> listAll(Integer page, Integer rows, String name,String id);
 }

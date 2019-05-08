@@ -43,11 +43,14 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Page<Admin> listAll(Integer page,Integer rows,String name) {
+    public Page<Admin> listAll(Integer page, Integer rows, String name,String id) {
         //创建管理员对象
         Admin admin = new Admin();
         if (StringUtils.isNoneBlank(name)){
             admin.setName(name);
+        }
+        if (StringUtils.isNoneBlank(id)){
+            admin.setId(id);
         }
         //查看管理员列表总记录数
         int total = (int) new PageInfo<>(adminDao.listAll(admin)).getTotal();

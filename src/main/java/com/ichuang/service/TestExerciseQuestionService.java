@@ -13,6 +13,6 @@ public interface TestExerciseQuestionService {
     //查询考核信息通过id
     TestExerciseQuestion getById( Integer id);
     //查询满足条件的考核信息列表
-    Page<TestExerciseQuestion> listAll(Integer page, Integer rows, Integer id, Integer number,Integer score,String answer,Integer assessment_id);
+    Page<TestExerciseQuestion> listAll(Integer page, Integer rows, Integer id, Integer number, Integer score, String answer, Integer assessment_id);
 }
 

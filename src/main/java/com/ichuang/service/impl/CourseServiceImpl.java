@@ -3,7 +3,6 @@ package com.ichuang.service.impl;
 import com.github.pagehelper.PageInfo;
 import com.ichuang.dao.CourseDao;
 import com.ichuang.pojo.Course;
-import com.ichuang.pojo.Teacher;
 import com.ichuang.service.CourseService;
 import com.ichuang.utils.Page;
 import org.apache.commons.lang3.StringUtils;

@@ -17,5 +17,5 @@ public interface CompetitionApplyService {
     CompetitionApply getById( Integer id);
     //查询满足条件的创业大赛申请信息列表
     Page<CompetitionApply> listAll(Integer page, Integer rows, Integer id, String competition_name, Integer competition_id,
-                                String apply_name, String apply_id,String name,String member_phone,String type,String progress);
+                                   String apply_name, String apply_id, String name, String member_phone, String type, String progress);
 }

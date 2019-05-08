@@ -5,11 +5,13 @@ import com.ichuang.pojo.TestExerciseQuestion;
 import com.ichuang.service.TestExerciseQuestionService;
 import com.ichuang.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+@Controller
 public class TestExerciseQuestionController {
     //依赖注入
     @Autowired
@@ -47,7 +49,7 @@ public class TestExerciseQuestionController {
         TestExerciseQuestion testExerciseQuestion1 = testExerciseQuestionService.getById(testExerciseQuestion.getId());
         if (rows >0){
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("CourseExerciseQuestion",JSONObject.toJSON(testExerciseQuestion1));
+            jsonObject.put("TestExerciseQuestion",JSONObject.toJSON(testExerciseQuestion1));
             return jsonObject.toJSONString();
         }
         else {

@@ -16,5 +16,5 @@ public interface CourseExerciseQuestionService {
     //查询课程练习题目信息通过id
     CourseExerciseQuestion getById( Integer id);
     //查询满足条件的课程练习题目信息列表
-    Page<CourseExerciseQuestion> listAll(Integer page, Integer rows, Integer id, Integer number,Integer score,String answer,Integer exercise_id);
+    Page<CourseExerciseQuestion> listAll(Integer page, Integer rows, Integer id, Integer number, Integer score, String answer, Integer exercise_id);
 }

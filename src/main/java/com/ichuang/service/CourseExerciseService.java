@@ -16,5 +16,5 @@ public interface CourseExerciseService {
     //查询课程练习信息通过id
     CourseExercise getById( Integer id);
     //查询满足条件的课程练习信息列表
-    Page<CourseExercise> listAll(Integer page, Integer rows, Integer id, String name, String course_name, Integer course_id,String teacher_id);
+    Page<CourseExercise> listAll(Integer page, Integer rows, Integer id, String name, String course_name, Integer course_id, String teacher_id);
 }

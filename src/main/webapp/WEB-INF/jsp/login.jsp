@@ -18,7 +18,8 @@
 
    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/font-awesome.css?v=4.4.0" rel="stylesheet">
-
+    <!-- Custom CSS -->
+    <link href="${pageContext.request.contextPath}/css/sb-admin-2.css" rel="stylesheet" />
     <link href="${pageContext.request.contextPath}/css/animate.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css?v=4.1.0" rel="stylesheet">
     <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
@@ -57,7 +58,7 @@
 </div>
 
 <!-- 全局js -->
-<script src="${pageContext.request.contextPath}/js/jquery.min.js?v=2.1.4"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js?v=3.3.6"></script>
 <script type="text/javascript">
    function login() {

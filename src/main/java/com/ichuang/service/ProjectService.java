@@ -17,5 +17,5 @@ public interface ProjectService {
     Project getById( Integer id);
     //查询满足条件的创业项目信息列表
     Page<Project> listAll(Integer page, Integer rows, Integer id, String name, String start_time,
-                           String end_time, String post_name,String post_id, String type,String rank);
+                          String end_time, String post_name, String post_id, String type, String rank);
 }

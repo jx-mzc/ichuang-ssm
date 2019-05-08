@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ichuang.dao.PointDao">
+    <!-- 添加积分 -->
+    <insert id="add" parameterType="Point">
+        insert into point (id,member_id,member_name,count)
+        values (#{id},#{member_id},#{member_name},#{count});
+    </insert>
+    <!-- 删除积分 -->
+    <delete id="delete" parameterType="String">
+        delete from point where id=#{id};
+    </delete>
+    <!-- 更新积分 -->
+    <update id="update" parameterType="Point">
+        update point set count = (
+        select sum (count) from point_detail where point_id=#{id}
+        )
+        where id=#{id};
+    </update>
+    <!-- 查询积分根据id -->
+    <select id="getById" parameterType="String" resultType="Point">
+        select * from point where id=#{id};
+    </select>
+    <!-- 查询所有积分信息 -->
+    <select id="listAll" resultType="Point" parameterType="Point">
+        select * from point
+        <where>
+            <if test="id!=null">
+                id = #{id}
+            </if>
+            <if test="member_id!=null">
+                member_id = #{member_id}
+            </if>
+            <if test="member_name!=null">
+                member_name like "%"#{member_name}"%"
+            </if>
+            <if test="count!=null">
+                count = #{count}
+            </if>
+        </where>
+        order by count desc
+        <!-- 分页查询 -->
+        <if test="start!=null and rows!=null">
+            limit #{start},#{rows}
+        </if>
+    </select>
+</mapper>

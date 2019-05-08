@@ -103,4 +103,15 @@ public class AccountController {
             return "FAIL";
         }
     }
+    /**
+     * 查询账户信息
+     */
+    @ResponseBody
+    @RequestMapping("/getAccount.action")
+    public String getAccount(String id){
+        Account account = accountService.getAccountById(id);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("Account",JSONObject.toJSON(account));
+        return jsonObject.toJSONString();
+    }
 }

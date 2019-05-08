@@ -43,7 +43,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Page<Member> listAll(Integer page,Integer rows,String id,String name,String school_name,String club_name) {
+    public Page<Member> listAll(Integer page, Integer rows, String id, String name, String school_name, String club_name) {
         Member member = new Member();
         if (StringUtils.isNoneBlank(id)){
             member.setId(id);
