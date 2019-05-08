@@ -26,7 +26,7 @@ public class PointController {
      */
     @ResponseBody
     @RequestMapping("/getPoint.action")
-    public String getPoint(@RequestBody String id ){
+    public String getPoint(String id ){
         Point point = pointService.getById(id);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("Point",JSONObject.toJSON(point));
