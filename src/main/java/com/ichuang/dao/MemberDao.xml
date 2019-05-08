@@ -70,7 +70,7 @@
                 interest=#{interest},
             </if>
             <if test="school_name!=null">
-                school_name={school_name},
+                school_name=#{school_name},
             </if>
             <if test="school_id!=null">
                 school_id=#{school_id},

@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.ichuang.pojo.Project;
 import com.ichuang.service.ProjectService;
 import com.ichuang.utils.Page;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * 创业项目信息控制器类
@@ -105,35 +107,39 @@ public class ProjectController {
         String id = httpServletRequest.getParameter("id");
         Project project = projectService.getById(Integer.valueOf(id));
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Project",JSONObject.toJSON(project));
+        String path = project.getProject_file();
+
+
         //设置上传文件的保存地址目录
         String dirPath = "C:/tomcat/apache-tomcat-9.0.12/webapps/files/project/";
-        File file = new File(dirPath);
-        //如果保存文件的地址不存在，就先创建目录
-        if (!file.exists()){
-            file.mkdirs();
-        }
+
         //获取上传文件的原始名称
         String originalFilename = multipartFile.getOriginalFilename();
         //获取上传文件的后缀
         String prefix = originalFilename.substring(originalFilename.lastIndexOf(".")+1);
         //重新命名上传文件（项目号）
-        String newFile = dirPath+id+"."+prefix;
+        String newName = UUID.randomUUID()+"."+prefix;
 
         try {
-            //删除原来的文件
-            File file1= new File(newFile);
-            if (file1.exists()) {
-                file1.delete();
+            File file;
+            if (StringUtils.isNoneBlank(path)){
+                String filename = path.substring(path.lastIndexOf("/")+1);
+                file = new File(dirPath+filename);
+                file.delete();
+                file = new File(dirPath+newName);
+            }
+            else {
+                file = new File(dirPath+newName);
+                //如果保存文件的地址不存在，就先创建目录
+                file.mkdirs();
             }
             //使用MultipartFile接口方法完成文件上传到指定位置
-            multipartFile.transferTo(file1);
-            if (project.getProject_file()==null){
-                project.setProject_file("https://www.iwchuang.cn/files/project/"+id+"_project_file."+prefix);
-                projectService.update(project);
-            }
+            multipartFile.transferTo(file);
+            project.setProject_file("https://www.iwchuang.cn/files/project/"+newName);
+            projectService.update(project);
         }catch (Exception e){
             e.printStackTrace();
+            jsonObject.put("Project",JSONObject.toJSON(project));
             return jsonObject.toJSONString();
         }
         jsonObject.put("Project",JSONObject.toJSON(project));
@@ -149,35 +155,39 @@ public class ProjectController {
         String id = httpServletRequest.getParameter("id");
         Project project = projectService.getById(Integer.valueOf(id));
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Project",JSONObject.toJSON(project));
+        String path = project.getPhoto();
+
         //设置上传文件的保存地址目录
         String dirPath = "C:/tomcat/apache-tomcat-9.0.12/webapps/images/project/";
-        File file = new File(dirPath);
-        //如果保存文件的地址不存在，就先创建目录
-        if (!file.exists()){
-            file.mkdirs();
-        }
+
         //获取上传文件的原始名称
         String originalFilename = multipartFile.getOriginalFilename();
         //获取上传文件的后缀
         String prefix = originalFilename.substring(originalFilename.lastIndexOf(".")+1);
         //重新命名上传文件（项目号）
-        String newFile = dirPath+id+"."+prefix;
+        String newName = UUID.randomUUID()+"."+prefix;
+
 
         try {
-            //删除原来的文件
-            File file1= new File(newFile);
-            if (file1.exists()) {
-                file1.delete();
+            File file;
+            if (StringUtils.isNoneBlank(path)){
+                String filename = path.substring(path.lastIndexOf("/")+1);
+                file = new File(dirPath+filename);
+                file.delete();
+                file = new File(dirPath+newName);
+            }
+            else {
+                file = new File(dirPath+newName);
+                //如果保存文件的地址不存在，就先创建目录
+                file.mkdirs();
             }
             //使用MultipartFile接口方法完成文件上传到指定位置
-            multipartFile.transferTo(file1);
-            if (project.getPhoto()==null){
-                project.setPhoto("https://www.iwchuang.cn/images/project/"+id+"_project_file."+prefix);
-                projectService.update(project);
-            }
+            multipartFile.transferTo(file);
+            project.setPhoto("https://www.iwchuang.cn/images/project/"+newName);
+            projectService.update(project);
         }catch (Exception e){
             e.printStackTrace();
+            jsonObject.put("Project",JSONObject.toJSON(project));
             return jsonObject.toJSONString();
         }
         jsonObject.put("Project",JSONObject.toJSON(project));

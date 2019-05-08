@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.ichuang.pojo.Activity;
 import com.ichuang.service.ActivityService;
 import com.ichuang.utils.Page;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
 
 /**
  * 创业活动信息控制器类
@@ -95,48 +97,93 @@ public class ActivityController {
         }
     }
     /**
-     * 执行上传创业活动文件
+     * 执行上传创业活动通知文件
      */
     @ResponseBody
-    @RequestMapping("/uploadActivityFile.action")
-    public String uploadActivityFile(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
+    @RequestMapping("/uploadActivityNotificationFile.action")
+    public String uploadActivityNotificationFile(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
         httpServletRequest.setCharacterEncoding("UTF-8");
         String id = httpServletRequest.getParameter("id");
         Activity activity = activityService.getById(Integer.valueOf(id));
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("Activity",JSONObject.toJSON(activity));
+
+        String path = activity.getNotification_file();
+
         //设置上传文件的保存地址目录
         String dirPath = "C:/tomcat/apache-tomcat-9.0.12/webapps/files/activity/";
-        File file = new File(dirPath);
-        //如果保存文件的地址不存在，就先创建目录
-        if (!file.exists()){
-            file.mkdirs();
-        }
+
         //获取上传文件的原始名称
         String originalFilename = multipartFile.getOriginalFilename();
         //获取上传文件的后缀
         String prefix = originalFilename.substring(originalFilename.lastIndexOf(".")+1);
         //重新命名上传文件（活动号）
-        String newFile = dirPath+id+"."+prefix;
+        String newName =  UUID.randomUUID()+"_notification_file"+"."+prefix;
 
         try {
-            //删除原来的文件
-            File file1= new File(newFile);
-            if (file1.exists()) {
-                file1.delete();
+            File file;
+            if (StringUtils.isNoneBlank(path)){
+                String filename = path.substring(path.lastIndexOf("/")+1);
+                file = new File(dirPath+filename);
+                file.delete();
+                file = new File(dirPath+newName);
+            } else {
+                file = new File(dirPath+newName);
+                //如果保存文件的地址不存在，就先创建目录
+                file.mkdirs();
             }
             //使用MultipartFile接口方法完成文件上传到指定位置
-            multipartFile.transferTo(file1);
-            if (activity.getNotification_file()==null){
-                activity.setNotification_file("https://www.iwchuang.cn/files/activity/"+id+"_notification_file."+prefix);
-                activityService.update(activity);
-            }
-            if (activity.getApply_file()==null){
-                activity.setApply_file("https://www.iwchuang.cn/files/activity/"+id+"_apply_file."+prefix);
-                activityService.update(activity);
-            }
+            multipartFile.transferTo(file);
+            activity.setNotification_file("https://www.iwchuang.cn/files/activity/"+newName);
+            activityService.update(activity);
         }catch (Exception e){
             e.printStackTrace();
+            jsonObject.put("Activity",JSONObject.toJSON(activity));
+            return jsonObject.toJSONString();
+        }
+        jsonObject.put("Activity",JSONObject.toJSON(activity));
+        return jsonObject.toJSONString();
+    }
+    /**
+     * 执行上传创业活动报名文件
+     */
+    @ResponseBody
+    @RequestMapping("/uploadActivityApplyFile.action")
+    public String uploadActivityApplyFile(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
+        httpServletRequest.setCharacterEncoding("UTF-8");
+        String id = httpServletRequest.getParameter("id");
+        Activity activity = activityService.getById(Integer.valueOf(id));
+        JSONObject jsonObject = new JSONObject();
+        String path = activity.getApply_file();
+
+        //设置上传文件的保存地址目录
+        String dirPath = "C:/tomcat/apache-tomcat-9.0.12/webapps/files/activity/";
+
+        //获取上传文件的原始名称
+        String originalFilename = multipartFile.getOriginalFilename();
+        //获取上传文件的后缀
+        String prefix = originalFilename.substring(originalFilename.lastIndexOf(".")+1);
+        //重新命名上传文件（活动号）
+        String newName =  UUID.randomUUID()+"_apply_file"+"."+prefix;
+
+        try {
+            File file;
+            if (StringUtils.isNoneBlank(path)){
+                String filename = path.substring(path.lastIndexOf("/")+1);
+                file = new File(dirPath+filename);
+                file.delete();
+                file = new File(dirPath+newName);
+            }else {
+                file = new File(dirPath+newName);
+                //如果保存文件的地址不存在，就先创建目录
+                file.mkdirs();
+            }
+            //使用MultipartFile接口方法完成文件上传到指定位置
+            multipartFile.transferTo(file);
+            activity.setApply_file("https://www.iwchuang.cn/files/activity/"+newName);
+            activityService.update(activity);
+        }catch (Exception e){
+            e.printStackTrace();
+            jsonObject.put("Activity",JSONObject.toJSON(activity));
             return jsonObject.toJSONString();
         }
         jsonObject.put("Activity",JSONObject.toJSON(activity));
