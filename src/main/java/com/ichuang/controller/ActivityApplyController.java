@@ -100,8 +100,8 @@ public class ActivityApplyController {
      * 执行上传创业活动申请表文件
      */
     @ResponseBody
-    @RequestMapping("/uploadActivityApplyFile.action")
-    public String uploadActivityApplyFile(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
+    @RequestMapping("/uploadActivityApply.action")
+    public String uploadActivityApply(@RequestParam("file") MultipartFile multipartFile , HttpServletRequest httpServletRequest) throws IOException {
         httpServletRequest.setCharacterEncoding("UTF-8");
         String id = httpServletRequest.getParameter("id");
         ActivityApply activityApply = activityApplyService.getById(Integer.valueOf(id));
