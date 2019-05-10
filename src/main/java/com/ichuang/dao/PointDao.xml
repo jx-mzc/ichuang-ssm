@@ -14,7 +14,7 @@
     <!-- 更新积分 -->
     <update id="update" parameterType="Point">
         update point set count = (
-        select sum (count) from point_detail where point_id=#{id}
+        select sum(count) from point_detail where point_id=#{id}
         )
         where id=#{id};
     </update>
