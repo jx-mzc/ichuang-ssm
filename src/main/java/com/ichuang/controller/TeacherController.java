@@ -139,7 +139,10 @@ public class TeacherController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             teacher.setPhoto("https://www.iwchuang.cn/images/teacher/"+newName);
-            teacherService.update(teacher);
+            Teacher teacher1 = new Teacher();
+            teacher1.setId(teacher.getId());
+            teacher1.setPhoto("https://www.iwchuang.cn/images/teacher/"+newName);
+            teacherService.update(teacher1);
         }catch (Exception e){
             e.printStackTrace();
             jsonObject.put("Teacher",JSONObject.toJSON(teacher));

@@ -135,7 +135,10 @@ public class CompetitionController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             competition.setNotification_file("https://www.iwchuang.cn/files/competition/"+newName);
-            competitionService.update(competition);
+            Competition competition1 = new Competition();
+            competition1.setId(competition.getId());
+            competition1.setNotification_file("https://www.iwchuang.cn/files/competition/"+newName);
+            competitionService.update(competition1);
 
         }catch (Exception e){
             e.printStackTrace();

@@ -136,7 +136,10 @@ public class ProjectController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             project.setProject_file("https://www.iwchuang.cn/files/project/"+newName);
-            projectService.update(project);
+            Project project1 = new Project();
+            project1.setId(project.getId());
+            project1.setProject_file("https://www.iwchuang.cn/files/project/"+newName);
+            projectService.update(project1);
         }catch (Exception e){
             e.printStackTrace();
             jsonObject.put("Project",JSONObject.toJSON(project));
@@ -164,7 +167,7 @@ public class ProjectController {
         String originalFilename = multipartFile.getOriginalFilename();
         //获取上传文件的后缀
         String prefix = originalFilename.substring(originalFilename.lastIndexOf(".")+1);
-        //重新命名上传文件（项目号）
+        //重新命名上传文件
         String newName = UUID.randomUUID()+"."+prefix;
 
 
@@ -184,7 +187,10 @@ public class ProjectController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             project.setPhoto("https://www.iwchuang.cn/images/project/"+newName);
-            projectService.update(project);
+            Project project1 = new Project();
+            project1.setId(project.getId());
+            project1.setPhoto("https://www.iwchuang.cn/files/project/"+newName);
+            projectService.update(project1);
         }catch (Exception e){
             e.printStackTrace();
             jsonObject.put("Project",JSONObject.toJSON(project));

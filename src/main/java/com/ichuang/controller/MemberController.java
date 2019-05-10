@@ -96,7 +96,10 @@ public class MemberController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             member.setPhoto("https://www.iwchuang.cn/images/member/"+newName);
-            memberService.update(member);
+            Member member1 = new Member();
+            member1.setId(member.getId());
+            member1.setPhoto("https://www.iwchuang.cn/images/member/"+newName);
+            memberService.update(member1);
         }catch (Exception e){
             e.printStackTrace();
             jsonObject.put("Member",JSONObject.toJSON(member));

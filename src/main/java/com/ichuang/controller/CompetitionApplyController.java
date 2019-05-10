@@ -137,7 +137,10 @@ public class CompetitionApplyController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             competitionApply.setPlan_file("https://www.iwchuang.cn/files/competitionApply/"+newName);
-            competitionApplyService.update(competitionApply);
+            CompetitionApply competitionApply1 = new CompetitionApply();
+            competitionApply1.setId(competitionApply.getId());
+            competitionApply1.setPlan_file("https://www.iwchuang.cn/files/competitionApply/"+newName);
+            competitionApplyService.update(competitionApply1);
         }catch (Exception e){
             e.printStackTrace();
             jsonObject.put("CompetitionApply",JSONObject.toJSON(competitionApply));

@@ -135,7 +135,10 @@ public class CourseController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             course.setPhoto("https://www.iwchuang.cn/images/course/"+newName);
-            courseService.update(course);
+            Course course1 = new Course();
+            course1.setId(course.getId());
+            course1.setPhoto("https://www.iwchuang.cn/images/course/"+newName);
+            courseService.update(course1);
         }catch (Exception e){
             e.printStackTrace();
             jsonObject.put("Course",JSONObject.toJSON(course));

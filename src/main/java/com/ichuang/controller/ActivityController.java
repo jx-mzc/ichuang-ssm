@@ -134,7 +134,10 @@ public class ActivityController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             activity.setNotification_file("https://www.iwchuang.cn/files/activity/"+newName);
-            activityService.update(activity);
+            Activity activity1 = new Activity();
+            activity1.setId(activity.getId());
+            activity1.setNotification_file("https://www.iwchuang.cn/files/activity/"+newName);
+            activityService.update(activity1);
         }catch (Exception e){
             e.printStackTrace();
             jsonObject.put("Activity",JSONObject.toJSON(activity));
@@ -180,7 +183,10 @@ public class ActivityController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             activity.setApply_file("https://www.iwchuang.cn/files/activity/"+newName);
-            activityService.update(activity);
+            Activity activity1 = new Activity();
+            activity1.setId(activity.getId());
+            activity1.setApply_file("https://www.iwchuang.cn/files/activity/"+newName);
+            activityService.update(activity1);
         }catch (Exception e){
             e.printStackTrace();
             jsonObject.put("Activity",JSONObject.toJSON(activity));

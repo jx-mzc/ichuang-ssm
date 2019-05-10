@@ -135,7 +135,10 @@ public class ProjectApplyController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             projectApply.setApply_file("https://www.iwchuang.cn/files/projectApply/"+newName);
-            projectApplyService.update(projectApply);
+            ProjectApply projectApply1 = new ProjectApply();
+            projectApply1.setId(projectApply.getId());
+            projectApply1.setApply_file("https://www.iwchuang.cn/files/projectApply/"+newName);
+            projectApplyService.update(projectApply1);
         }catch (Exception e){
             e.printStackTrace();
             jsonObject.put("ProjectApply",JSONObject.toJSON(projectApply));

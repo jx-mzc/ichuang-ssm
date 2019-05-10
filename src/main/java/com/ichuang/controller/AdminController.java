@@ -103,7 +103,10 @@ public class AdminController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             admin.setPhoto("https://www.iwchuang.cn/images/admin/"+newName);
-            adminService.update(admin);
+            Admin admin1 = new Admin();
+            admin1.setId(admin.getId());
+            admin1.setPhoto("https://www.iwchuang.cn/images/admin/"+newName);
+            adminService.update(admin1);
         }catch (Exception e){
             e.printStackTrace();
             jsonObject.put("Admin",JSONObject.toJSON(admin));

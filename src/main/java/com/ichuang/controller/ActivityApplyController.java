@@ -134,7 +134,10 @@ public class ActivityApplyController {
             //使用MultipartFile接口方法完成文件上传到指定位置
             multipartFile.transferTo(file);
             activityApply.setApply_file("https://www.iwchuang.cn/files/activityApply/"+newName);
-            activityApplyService.update(activityApply);
+            ActivityApply activityApply1 = new ActivityApply();
+            activityApply1.setId(activityApply.getId());
+            activityApply1.setApply_file("https://www.iwchuang.cn/files/activityApply/"+newName);
+            activityApplyService.update(activityApply1);
         }catch (Exception e){
             e.printStackTrace();
             jsonObject.put("ActivityApply",JSONObject.toJSON(activityApply));
