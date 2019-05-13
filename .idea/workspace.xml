@@ -7,100 +7,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f11c09a-10b3-4d95-a4b2-480bd560e39f" name="Default Changelist" comment="空闲时间表">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/ActivityApplyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/ActivityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/CompetitionApplyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/CompetitionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/ProjectApplyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/ProjectController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/ActivityApplyDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/ActivityApplyDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/ActivityDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/ActivityDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/CompetitionApplyDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/CompetitionApplyDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/CompetitionDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/CompetitionDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/ProjectApplyDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/ProjectApplyDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/ProjectDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/dao/ProjectDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/pojo/Activity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/pojo/ActivityApply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/pojo/Competition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/pojo/CompetitionApply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/pojo/Project.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/pojo/ProjectApply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/ActivityApplyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/ActivityService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/CompetitionApplyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/CompetitionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/ProjectApplyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/ProjectService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/ActivityApplyServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/ActivityServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/CompetitionApplyServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/CompetitionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/ProjectApplyServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/ProjectServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/TeacherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/controller/AccountController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/controller/AdminController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/controller/CourseChapterController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/controller/CourseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/controller/CourseExerciseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/controller/CourseExerciseQuestionController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/controller/FreeTimeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/controller/MemberController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/controller/TeacherController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/AccountDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/AdminDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseChapterDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseExerciseDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseExerciseQuestionDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/FreeTimeDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/MemberDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/TeacherDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/interceptor/LoginInterceptor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/pojo/Account.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/pojo/Admin.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/pojo/Course.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/pojo/CourseChapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/pojo/CourseExercise.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/pojo/CourseExerciseQuestion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/pojo/FreeTime.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/pojo/Member.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/pojo/Teacher.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/AccountService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/AdminService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/CourseChapterService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/CourseExerciseQuestionService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/CourseExerciseService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/CourseService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/FreeTimeService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/MemberService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/TeacherService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/impl/AccountServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/impl/AdminServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/impl/CourseChapterServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/impl/CourseExerciseQuestionServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/impl/CourseExerciseServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/impl/CourseServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/impl/FreeTimeServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/impl/MemberServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/service/impl/TeacherServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/utils/NavigationTag.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/utils/Page.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/FreeTimeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ichuang/controller/FreeTimeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseChapterDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseChapterDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseExerciseDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseExerciseDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseExerciseQuestionDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ichuang/dao/CourseExerciseQuestionDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ichuang/dao/MemberDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ichuang/dao/MemberDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/CourseChapterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/CourseChapterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/CourseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/CourseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/CourseExerciseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/CourseExerciseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/CourseExerciseQuestionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/CourseExerciseQuestionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/FreeTimeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/FreeTimeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/MemberController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/MemberController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/TeacherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/controller/TeacherController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseChapterDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseChapterDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseChapterDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseChapterDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseExerciseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseExerciseDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseExerciseDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseExerciseDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseExerciseQuestionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseExerciseQuestionDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseExerciseQuestionDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/CourseExerciseQuestionDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/MemberDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/dao/MemberDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/Course.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/CourseChapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/CourseChapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/CourseExercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/CourseExercise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/CourseExerciseQuestion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/CourseExerciseQuestion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/FreeTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/pojo/FreeTime.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/AdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/AdminService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/CourseChapterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/CourseChapterService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/CourseExerciseQuestionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/CourseExerciseQuestionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/CourseExerciseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/CourseExerciseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/CourseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/CourseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/impl/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/impl/AdminServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/impl/CourseChapterServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/impl/CourseChapterServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/impl/CourseExerciseQuestionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/impl/CourseExerciseQuestionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/impl/CourseExerciseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/impl/CourseExerciseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/impl/CourseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/service/impl/CourseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/utils/NavigationTag.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/classes/com/ichuang/utils/NavigationTag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/jsp/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/jsp/admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/WEB-INF/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/WEB-INF/jsp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ichuang/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/ichuang/js/bootstrap.min.js" afterDir="false" />
     </list>
-    <list id="84144873-539a-4aa1-93fe-718e6a753a25" name="New changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-    </list>
+    <list id="84144873-539a-4aa1-93fe-718e6a753a25" name="New changelist" comment="" />
     <ignored path=".idea/" />
     <ignored path="target/" />
+    <ignored path="$PROJECT_DIR$/target/classes/" />
+    <ignored path="$PROJECT_DIR$/target/ichuang/" />
     <manually-removed-from-ignored>
       <directory path="$PROJECT_DIR$/target/" />
     </manually-removed-from-ignored>
@@ -114,49 +74,53 @@
     <session id="1384228939">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="92" />
+          <entry key="java" value="105" />
           <entry key="jsp" value="3" />
           <entry key="properties" value="2" />
-          <entry key="xml" value="30" />
+          <entry key="xml" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="92" />
+          <entry key="JAVA" value="105" />
           <entry key="JSP" value="3" />
           <entry key="Properties" value="2" />
-          <entry key="XML" value="30" />
+          <entry key="XML" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="882" />
+          <entry key="java" value="975" />
           <entry key="properties" value="24" />
-          <entry key="txt" value="6" />
+          <entry key="txt" value="16" />
           <entry key="xml" value="346" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="882" />
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="JAVA" value="975" />
+          <entry key="PLAIN_TEXT" value="16" />
           <entry key="Properties" value="24" />
           <entry key="SQL" value="3" />
           <entry key="XML" value="343" />
@@ -203,33 +167,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/ProjectApplyServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/PointController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="46" column="108" selection-start-line="45" selection-start-column="66" selection-end-line="46" selection-end-column="108" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#472#473#0" expanded="true" />
-                <element signature="e#496#497#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#571#572#0" expanded="true" />
-                <element signature="e#898#899#0" expanded="true" />
-                <element signature="e#942#943#0" expanded="true" />
-                <element signature="e#722#723#0" expanded="true" />
-                <element signature="e#749#750#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1175">
+              <caret line="56" column="45" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/dao/PointDao.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/ProjectApplyController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/FreeTimeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4140">
-              <caret line="138" column="68" selection-start-line="138" selection-start-column="68" selection-end-line="138" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="308">
+              <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/MemberController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="550">
+              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -237,8 +205,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/ActivityApplyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1218">
-              <caret line="132" column="13" lean-forward="true" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
+            <state relative-caret-position="2175">
+              <caret line="103" column="37" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -263,7 +231,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/service/AccountService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
@@ -273,7 +240,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/dao/FreeTimeDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/service/FreeTimeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/FreeTimeServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ichuang/controller/FreeTimeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/controller/CourseController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/controller/MemberController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/controller/TeacherController.java" />
@@ -287,7 +253,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/service/ActivityApplyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/ActivityApplyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/controller/ActivityController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ichuang/controller/ActivityApplyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/pojo/Competition.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/dao/CompetitionDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/dao/CompetitionDao.xml" />
@@ -314,6 +279,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/ActivityApplyServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/ProjectApplyServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ichuang/controller/ProjectApplyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ichuang/controller/PointController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ichuang/controller/ActivityApplyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ichuang/controller/FreeTimeController.java" />
       </list>
     </option>
   </component>
@@ -349,35 +317,83 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="ichuang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ichuang-ssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ichuang-ssm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ichuang-ssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ichuang-ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ichuang-ssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ichuang-ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ichuang-ssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ichuang-ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ichuang-ssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ichuang-ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ichuang" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="ichuang" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ichuang" type="462c0819:PsiDirectoryNode" />
+              <item name="ichuang-ssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ichuang-ssm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ichuang" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ichuang-ssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ichuang-ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ichuang" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ichuang-ssm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ichuang-ssm" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ichuang" type="462c0819:PsiDirectoryNode" />
+              <item name="pojo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556893320376" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557481030542" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/target" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -397,7 +413,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="ichuang" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.8" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="ichuang" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="ichuang:war exploded">
@@ -494,6 +510,10 @@
       <workItem from="1556853590656" duration="15676000" />
       <workItem from="1556887628256" duration="5639000" />
       <workItem from="1556895087388" duration="2253000" />
+      <workItem from="1557300817268" duration="307000" />
+      <workItem from="1557301148851" duration="7502000" />
+      <workItem from="1557478673458" duration="1547000" />
+      <workItem from="1557705674441" duration="594000" />
     </task>
     <task id="LOCAL-00001" summary="空闲时间表">
       <created>1556586921182</created>
@@ -502,16 +522,31 @@
       <option name="project" value="LOCAL" />
       <updated>1556586921183</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改bug">
+      <created>1557308655070</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1557308655071</updated>
+    </task>
+    <task id="LOCAL-00003" summary="修改bug">
+      <created>1557309205987</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557309205987</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70989000" />
+    <option name="totallyTimeSpent" value="80939000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25804722" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2730711" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -521,7 +556,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.5065574" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33114755" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -580,72 +615,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="空闲时间表" />
-    <option name="LAST_COMMIT_MESSAGE" value="空闲时间表" />
+    <MESSAGE value="修改bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改bug" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/CourseExerciseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="50" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/utils/Page.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="42" column="71" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/CourseChapterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/MemberController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="96" column="86" selection-start-line="96" selection-start-column="86" selection-end-line="96" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/TeacherController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/pojo/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="17" column="45" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="17" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/dao/CourseDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -671,13 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="51" column="35" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/CourseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="135" column="32" lean-forward="true" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -838,13 +804,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/ProjectController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1338">
-          <caret line="176" column="47" lean-forward="true" selection-start-line="176" selection-start-column="47" selection-end-line="176" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/ProjectServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -856,40 +815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="15" column="45" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="15" selection-end-column="45" />
-          <folding>
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#469#470#0" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#610#611#0" expanded="true" />
-            <element signature="e#668#669#0" expanded="true" />
-            <element signature="e#718#719#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#846#847#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#929#930#0" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
-            <element signature="e#1014#1015#0" expanded="true" />
-            <element signature="e#1058#1059#0" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1124#1125#0" expanded="true" />
-            <element signature="e#1172#1173#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-            <element signature="e#1249#1250#0" expanded="true" />
-            <element signature="e#1282#1283#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1378#1379#0" expanded="true" />
-            <element signature="e#1411#1412#0" expanded="true" />
-            <element signature="e#1439#1440#0" expanded="true" />
-            <element signature="e#1482#1483#0" expanded="true" />
-            <element signature="e#1516#1517#0" expanded="true" />
-            <element signature="e#1548#1549#0" expanded="true" />
-            <element signature="e#1575#1576#0" expanded="true" />
-            <element signature="e#1616#1617#0" expanded="true" />
-            <element signature="e#1648#1649#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -897,9 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="19" column="68" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="19" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -907,9 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -931,9 +850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="19" column="63" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="19" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -941,9 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="8" column="36" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -951,44 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="13" column="26" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="26" />
-          <folding>
-            <element signature="e#468#469#0" expanded="true" />
-            <element signature="e#493#494#0" expanded="true" />
-            <element signature="e#530#531#0" expanded="true" />
-            <element signature="e#558#559#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#632#633#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#774#775#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#860#861#0" expanded="true" />
-            <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#941#942#0" expanded="true" />
-            <element signature="e#974#975#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1070#1071#0" expanded="true" />
-            <element signature="e#1105#1106#0" expanded="true" />
-            <element signature="e#1136#1137#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1224#1225#0" expanded="true" />
-            <element signature="e#1258#1259#0" expanded="true" />
-            <element signature="e#1287#1288#0" expanded="true" />
-            <element signature="e#1332#1333#0" expanded="true" />
-            <element signature="e#1368#1369#0" expanded="true" />
-            <element signature="e#1405#1406#0" expanded="true" />
-            <element signature="e#1438#1439#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
-            <element signature="e#1534#1535#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
-            <element signature="e#1595#1596#0" expanded="true" />
-            <element signature="e#1638#1639#0" expanded="true" />
-            <element signature="e#1672#1673#0" expanded="true" />
-            <element signature="e#1704#1705#0" expanded="true" />
-            <element signature="e#1731#1732#0" expanded="true" />
-            <element signature="e#1772#1773#0" expanded="true" />
-            <element signature="e#1804#1805#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -996,47 +871,107 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="678">
           <caret line="74" column="22" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="74" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/service/impl/ProjectApplyServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="700">
           <caret line="46" column="108" selection-start-line="45" selection-start-column="66" selection-end-line="46" selection-end-column="108" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#496#497#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#571#572#0" expanded="true" />
-            <element signature="e#898#899#0" expanded="true" />
-            <element signature="e#942#943#0" expanded="true" />
-            <element signature="e#722#723#0" expanded="true" />
-            <element signature="e#749#750#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/ActivityApplyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="132" column="13" lean-forward="true" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/ProjectApplyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4140">
-          <caret line="138" column="68" selection-start-line="138" selection-start-column="68" selection-end-line="138" selection-end-column="68" />
+        <state relative-caret-position="2975">
+          <caret line="133" column="13" selection-start-line="133" selection-start-column="13" selection-end-line="133" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/ProjectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4050">
+          <caret line="176" column="47" selection-start-line="176" selection-start-column="47" selection-end-line="176" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/pojo/PointDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/pojo/Point.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/dao/PointDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/dao/PointDetailDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/PointDetailController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="26" column="43" lean-forward="true" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/CourseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="135" column="32" lean-forward="true" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/PointController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1175">
+          <caret line="56" column="45" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/dao/PointDao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/MemberController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/ActivityApplyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2175">
+          <caret line="103" column="37" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ichuang/controller/FreeTimeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="57" column="31" selection-start-line="57" selection-start-column="31" selection-end-line="57" selection-end-column="31" />
         </state>
       </provider>
     </entry>

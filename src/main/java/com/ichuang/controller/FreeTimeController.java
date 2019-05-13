@@ -1,5 +1,6 @@
 package com.ichuang.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.ichuang.pojo.FreeTime;
 import com.ichuang.service.FreeTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ public class FreeTimeController {
     }
 
     /**
-     * 根据member_id查询空闲时间信息
+     * 根据member_id判断空闲时间信息
      * @return
      */
     @ResponseBody
@@ -48,10 +49,13 @@ public class FreeTimeController {
         //受影响的行数
         FreeTime freeTime1 = freeTimeService.getFreeTime(freeTime.getMember_id());
         if (freeTime1!=null){
-            return "SUCCESS";//不存在
+            freeTime = freeTimeService.getFreeTime(freeTime.getMember_id());
+            JSONObject jsonObject  = new JSONObject();
+            jsonObject.put("FreeTime",JSONObject.toJSON(freeTime));
+            return jsonObject.toJSONString();//存在
         }
         else {
-            return "FAIL";//已经存在
+            return "FAIL";//不存在
         }
 
     }
