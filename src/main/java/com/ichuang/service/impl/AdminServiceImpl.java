@@ -23,18 +23,18 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private AdminDao adminDao;
     @Override
-    public void add(Admin admin) {
-        this.adminDao.add(admin);
+    public int add(Admin admin) {
+        return this.adminDao.add(admin);
     }
 
     @Override
-    public void delete(String id) {
-        this.adminDao.delete(id);
+    public int delete(String id) {
+        return this.adminDao.delete(id);
     }
 
     @Override
-    public void update(Admin admin) {
-        this.adminDao.update(admin);
+    public int update(Admin admin) {
+        return this.adminDao.update(admin);
     }
 
     @Override

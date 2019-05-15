@@ -114,4 +114,22 @@ public class AccountController {
         jsonObject.put("Account",JSONObject.toJSON(account));
         return jsonObject.toJSONString();
     }
+    /**
+     * 添加账户信息
+     */
+    @ResponseBody
+    @RequestMapping("/addAccount.action")
+    public String addAccount(@RequestBody Account account){
+        if (accountService.getAccountById(account.getAccount())!=null){
+            return "该账号已存在！";
+        }
+        //受影响的行数
+        int rows = accountService.addAccount(account);
+        if (rows > 0){
+            return "SUCCESS";
+        }
+        else {
+            return "FAIL";
+        }
+    }
 }

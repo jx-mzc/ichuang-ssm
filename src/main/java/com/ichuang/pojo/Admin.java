@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class Admin implements Serializable {
 
     private String id;//管理员号
+    private String password;
     private String name;//管理员名
     private String sex;//性别
     private String phone;//电话号码
@@ -71,4 +72,11 @@ public class Admin implements Serializable {
         this.rows = rows;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

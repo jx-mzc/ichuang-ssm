@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class Teacher implements Serializable {
     private String id;
+    private String password;
     private String name;
     private String sex;
     private String phone;
@@ -79,4 +80,11 @@ public class Teacher implements Serializable {
         this.rows = rows;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

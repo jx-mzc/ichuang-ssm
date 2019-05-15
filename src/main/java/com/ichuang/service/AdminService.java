@@ -8,11 +8,11 @@ import com.ichuang.utils.Page;
  */
 public interface AdminService {
     //添加管理员
-    void add(Admin admin);
+    int add(Admin admin);
     //删除管理员
-    void delete(String id);
+    int delete(String id);
     //更新管理员信息
-    void update(Admin admin);
+    int update(Admin admin);
     //查询管理员信息
     Admin getById( String id);
     //查询所有管理员信息

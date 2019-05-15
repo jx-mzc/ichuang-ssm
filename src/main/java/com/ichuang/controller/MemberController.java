@@ -1,6 +1,7 @@
 package com.ichuang.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ichuang.pojo.Account;
 import com.ichuang.pojo.Member;
 import com.ichuang.service.AccountService;
 import com.ichuang.service.MemberService;
@@ -131,7 +132,16 @@ public class MemberController {
         //受影响的行数
         int rows = memberService.add(member);
         if (rows > 0){
-            return "SUCCESS";
+            Account account = new Account();
+            account.setAccount(member.getId());
+            account.setPassword(member.getPassword());
+            account.setTypes(1);
+            int row = accountService.addAccount(account);
+            if (row > 0){
+                return "SUCCESS";
+            }else {
+                return "FAIL";
+            }
         }
         else {
             return "FAIL";
@@ -143,9 +153,28 @@ public class MemberController {
     @ResponseBody
     @RequestMapping("/deleteMember.action")
     public String deleteMember(String id){
+        Member member = memberService.getById(id);
+        String path = member.getPhoto();
         int rows = memberService.delete(id);
         accountService.deleteAccount(id);
         if (rows > 0){
+            //删除照片
+            if (StringUtils.isNoneBlank(path)){
+                File file;
+                String dirPath = "C:/tomcat/apache-tomcat-9.0.12/webapps/images/member/";
+                String filename = path.substring(path.lastIndexOf("/")+1);
+                file = new File(dirPath+filename);
+                file.delete();
+            }
+            //删除账户
+            if (accountService.getAccountById(id)!=null){
+                int row = accountService.deleteAccount(id);
+                if (row > 0){
+                    return "SUCCESS";
+                }else {
+                    return "FAIL";
+                }
+            }
             return "SUCCESS";
         }else {
             return "FAIL";

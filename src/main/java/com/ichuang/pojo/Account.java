@@ -27,7 +27,7 @@ public class Account implements Serializable{
         this.password = password;
     }
 
-    public int getTypes() {
+    public Integer getTypes() {
         return types;
     }
 

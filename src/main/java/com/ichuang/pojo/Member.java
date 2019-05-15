@@ -7,6 +7,7 @@ import java.io.Serializable;
  */
 public class Member implements Serializable {
     private String id;//学号
+    private String password;
     private String name;//姓名
     private String sex;//性别
     private String phone;//电话号码
@@ -169,4 +170,11 @@ public class Member implements Serializable {
         this.rows = rows;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
