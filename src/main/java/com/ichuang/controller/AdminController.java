@@ -1,7 +1,9 @@
 package com.ichuang.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ichuang.pojo.Account;
 import com.ichuang.pojo.Admin;
+import com.ichuang.service.AccountService;
 import com.ichuang.service.AdminService;
 import com.ichuang.utils.Page;
 import org.apache.commons.lang3.StringUtils;
@@ -17,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -28,14 +29,16 @@ public class AdminController {
     //注入AdminService
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private AccountService accountService;
 
     /**
      * 查找管理员信息
      */
     @ResponseBody
     @RequestMapping("/getAdmin.action")
-    public String getAdminById(@RequestBody Map<String,String> id){
-        Admin admin = adminService.getById(id.get("id"));
+    public String getAdminById(String id){
+        Admin admin = adminService.getById(id);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("Admin",JSONObject.toJSON(admin));
         return jsonObject.toJSONString();
@@ -114,5 +117,81 @@ public class AdminController {
         }
         jsonObject.put("Admin",JSONObject.toJSON(admin));
         return jsonObject.toJSONString();
+    }
+    /**
+     * 创建管理员
+     */
+    @ResponseBody
+    @RequestMapping("/addAdmin.action")
+    public String addAdmin(@RequestBody Admin admin){
+        if (adminService.getById(admin.getId())!=null){
+            return "该管理员已存在！";
+        }
+        //受影响的行数
+        int rows = adminService.add(admin);
+        if (rows > 0){
+            Account account = new Account();
+            account.setAccount(admin.getId());
+            account.setPassword(admin.getPassword());
+            account.setTypes(4);
+            int row = accountService.addAccount(account);
+            if (row > 0){
+                return "SUCCESS";
+            }else {
+                return "FAIL";
+            }
+        }
+        else {
+            return "FAIL";
+        }
+    }
+    /**
+     * 修改管理员信息
+     */
+    @ResponseBody
+    @RequestMapping("/updateAdmin.action")
+    public String updateAdmin(@RequestBody Admin admin){
+        int rows = adminService.update(admin);
+        Admin admin1 = adminService.getById(admin.getId());
+        if (rows >0){
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("Admin",JSONObject.toJSON(admin1));
+            return jsonObject.toJSONString();
+        }
+        else {
+            return "FAIL";
+        }
+    }
+    /**
+     * 删除管理员信息
+     */
+    @ResponseBody
+    @RequestMapping("/deleteAdmin.action")
+    public String deleteAdmin(String id){
+        Admin admin = adminService.getById(id);
+        String path = admin.getPhoto();
+        int rows = adminService.delete(id);
+        if (rows > 0){
+            //删除照片
+            if (StringUtils.isNoneBlank(path)){
+                File file;
+                String dirPath = "C:/tomcat/apache-tomcat-9.0.12/webapps/images/admin/";
+                String filename = path.substring(path.lastIndexOf("/")+1);
+                file = new File(dirPath+filename);
+                file.delete();
+            }
+            //删除账户
+            if (accountService.getAccountById(id)!=null){
+                int row = accountService.deleteAccount(id);
+                if (row > 0){
+                    return "SUCCESS";
+                }else {
+                    return "FAIL";
+                }
+            }
+            return "SUCCESS";
+        }else {
+            return "FAIL";
+        }
     }
 }

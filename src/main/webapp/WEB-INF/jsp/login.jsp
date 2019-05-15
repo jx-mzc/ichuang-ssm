@@ -40,7 +40,7 @@
             <%-- 提示信息--%>
             <span id="message">${msg}</span>
         </font>
-
+        <form class="m-t" role="form">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="用户名" required="" id="account">
             </div>
@@ -48,7 +48,6 @@
                 <input type="password" class="form-control" placeholder="密码" required="" id="password">
             </div>
             <input type="button" class="btn btn-primary block full-width m-b" value="登 录" onclick="login()" >
-
 
             <p class="text-muted text-center"> <a href="login.html#"><small>忘记密码了？</small></a>
             </p>
