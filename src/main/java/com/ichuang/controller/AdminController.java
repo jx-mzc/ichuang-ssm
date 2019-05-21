@@ -51,6 +51,13 @@ public class AdminController {
         return "admin";
     }
     /**
+     * 向管理员个人信息界面跳转
+     */
+    @RequestMapping("/toAdminInfo.action")
+    public String toAdminInfo(){
+        return "adminInfo";
+    }
+    /**
      * 查找所有管理员信息
      */
     @ResponseBody
