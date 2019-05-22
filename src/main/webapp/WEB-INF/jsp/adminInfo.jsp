@@ -61,6 +61,8 @@
         <div style="align-content: center">
             <a href="#" class="btn btn-primary" data-toggle="modal"
                data-target="#updateDialog" onclick="edit(${USER_SESSION.id})">修改信息</a>
+            <a href="#" class="btn btn-primary" data-toggle="modal"
+               data-target="#updatePasswordDialog" onclick="editPassword()">修改密码</a>
         </div>
     </form>
 </div>
@@ -131,6 +133,47 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                 <button type="button" class="btn btn-primary" onclick="update()">修改信息</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 修改密码模态框 -->
+<div class="modal fade" id="updatePasswordDialog" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel2">修改密码</h4>
+                <input type="text" id="adminId" hidden="hidden" value=""/>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="admin_password_form">
+                    <div class="form-group">
+                        <label for="password" class="col-sm-3 control-label">原密码</label>
+                        <div class="col-sm-9">
+                            <input type="text"  class="form-control" id="password" name="password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="new_password" class="col-sm-3 control-label">新密码</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" id="new_password" name="password" required=""/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="check_password" class="col-sm-3 control-label">确认新密码</label>
+                        <div class="col-sm-9">
+                            <input type="password"  class="form-control" id="check_password" name="password" required=""/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" onclick="updatePassword(${USER_SESSION.id})">修改密码</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -216,6 +259,57 @@
                     } else{
                         alert("个人信息修改失败！");
                         window.location.reload();
+                    }
+                }
+            });
+        }
+    }
+    function editPassword() {
+        $("#password").val("");
+        $("#new_password").val("");
+        $("#check_password").val("");
+    }
+    function updatePassword(id) {
+        var password = $("#password").val();
+        var newPassword = $("#new_password").val();
+        var checkPassword = $("#check_password").val();
+        if (newPassword ==""){
+            alert("密码不要为空！");
+        } else if (checkPassword == ""){
+            alert("确认密码不要为空！");
+        } else if (newPassword != checkPassword){
+            alert("两次输入的密码不同！");
+        } else {
+            $.ajax({
+                type:"get",
+                url:"${pageContext.request.contextPath }/getAccount.action",
+                data:{"id":id},
+                contentType:"application/json;charset=UTF-8",
+                success:function(data){
+                    if (data!="{}") {
+                        if (password != JSON.parse(data).Account.password){
+                            alert("原密码输入错误！");
+                        }else {
+                            $.ajax({
+                                type:"post",
+                                url:"${pageContext.request.contextPath }/updateAccount.action",
+                                data:JSON.stringify({account:id,password:newPassword}),
+                                contentType:"application/json;charset=UTF-8",
+                                success:function(data){
+                                    if (data == "SUCCESS") {
+                                        alert("密码修改成功！");
+                                        window.location.reload();
+                                    }
+                                    else {
+                                        alert("密码修改失败！");
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                    else {
+                        $("#password").val("该用户无账号");
                     }
                 }
             });
