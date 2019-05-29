@@ -439,7 +439,7 @@
         var phone = $('#update_adminPhone').val();
         var file = $('#update_adminPhoto')[0].files[0];
         if (name == ""){
-            alert("管理员请名称不要为空！");
+            alert("管理员名称请不要为空！");
         }else if (sex == ""){
             alert("管理员性别请不要为空！");
         }else if (phone == ""){

@@ -427,11 +427,12 @@
                             <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i>
+                            <li>
+                                <a class="J_menuItem" href="${pageContext.request.contextPath }/toAdminInfo.action">
+                                    <i class="fa fa-user fa-fw"></i>
                                 用户：${USER_SESSION.name}
                             </a>
                             </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> 系统设置</a></li>
                             <li class="divider"></li>
                             <li>
                                 <a href="${pageContext.request.contextPath }/logout.action">
