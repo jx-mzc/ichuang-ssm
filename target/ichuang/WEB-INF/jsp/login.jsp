@@ -18,7 +18,8 @@
 
    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/font-awesome.css?v=4.4.0" rel="stylesheet">
-
+    <!-- Custom CSS -->
+    <link href="${pageContext.request.contextPath}/css/sb-admin-2.css" rel="stylesheet" />
     <link href="${pageContext.request.contextPath}/css/animate.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/style.css?v=4.1.0" rel="stylesheet">
     <script>if(window.top !== window.self){ window.top.location = window.location;}</script>
@@ -39,7 +40,7 @@
             <%-- 提示信息--%>
             <span id="message">${msg}</span>
         </font>
-
+        <form class="m-t" role="form">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="用户名" required="" id="account">
             </div>
@@ -47,7 +48,6 @@
                 <input type="password" class="form-control" placeholder="密码" required="" id="password">
             </div>
             <input type="button" class="btn btn-primary block full-width m-b" value="登 录" onclick="login()" >
-
 
             <p class="text-muted text-center"> <a href="login.html#"><small>忘记密码了？</small></a>
             </p>
@@ -57,7 +57,7 @@
 </div>
 
 <!-- 全局js -->
-<script src="${pageContext.request.contextPath}/js/jquery.min.js?v=2.1.4"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js?v=3.3.6"></script>
 <script type="text/javascript">
    function login() {

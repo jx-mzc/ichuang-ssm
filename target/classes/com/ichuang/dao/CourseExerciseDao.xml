@@ -4,11 +4,11 @@
 <mapper namespace="com.ichuang.dao.CourseExerciseDao">
     <!-- 添加课程练习信息 -->
     <insert id="add" parameterType="CourseExercise">
-        insert into course_exercise(id,question_count,course_name,course_id,name,teacher_id)
-        values (#{id},#{question_count},#{course_name},#{course_id},#{name},#{teacher_id});
+        insert into course_exercise(question_count,course_name,course_id,name,teacher_id)
+        values (#{question_count},#{course_name},#{course_id},#{name},#{teacher_id});
     </insert>
     <!-- 删除课程练习信息 -->
-    <delete id="delete" parameterType="String">
+    <delete id="delete" parameterType="Integer">
         delete from course_exercise where id=#{id};
     </delete>
     <!-- 修改课程练习信息 -->
@@ -34,7 +34,7 @@
         where id=#{id};
     </update>
     <!-- 查找课程练习信息根据id -->
-    <select id="getById" parameterType="String" resultType="CourseExercise">
+    <select id="getById" parameterType="Integer" resultType="CourseExercise">
         select * from course_exercise where id=#{id};
     </select>
     <!-- 查找课程练习信息列表-->

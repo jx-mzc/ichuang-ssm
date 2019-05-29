@@ -4,11 +4,11 @@
 <mapper namespace="com.ichuang.dao.CourseExerciseQuestionDao">
     <!-- 添加课程练习题目信息 -->
     <insert id="add" parameterType="CourseExerciseQuestion">
-        insert into course_exercise_question(id,number,question,score,choice_A,choice_B,choice_C,choice_D,answer,exercise_id)
-        values (#{id},#{number},#{question},#{score},#{choice_A},#{choice_B},#{choice_C},#{choice_D},#{answer},#{exercise_id});
+        insert into course_exercise_question(number,question,score,choice_A,choice_B,choice_C,choice_D,answer,exercise_id)
+        values (#{number},#{question},#{score},#{choice_A},#{choice_B},#{choice_C},#{choice_D},#{answer},#{exercise_id});
     </insert>
     <!-- 删除课程练习题目信息 -->
-    <delete id="delete" parameterType="String">
+    <delete id="delete" parameterType="Integer">
         delete from course_exercise_question where id=#{id};
     </delete>
     <!-- 修改课程练习题目信息 -->
@@ -46,7 +46,7 @@
         where id=#{id};
     </update>
     <!-- 查找课程练习题目信息根据id -->
-    <select id="getById" parameterType="String" resultType="CourseExerciseQuestion">
+    <select id="getById" parameterType="Integer" resultType="CourseExerciseQuestion">
         select * from course_exercise_question where id=#{id};
     </select>
     <!-- 查找课程练习题目信息列表-->
@@ -57,7 +57,7 @@
                 id = #{id}
             </if>
             <if test="number!=null">
-                and number like "%"#{number}"%"
+                and number=#{number}
             </if>
             <if test="score!=null">
                 and score=#{score}

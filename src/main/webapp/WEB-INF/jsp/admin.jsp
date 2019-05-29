@@ -58,7 +58,7 @@
                 <div class="panel-heading">管理员信息列表</div>
                 <!-- /.panel-heading -->
                 <table class="table table-bordered table-striped" id="datas">
-                    <thead>
+                        <thead>
                     <tr>
                         <th>管理员号</th>
                         <th>管理员姓名</th>

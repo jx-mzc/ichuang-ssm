@@ -3379,9 +3379,7 @@ body.full-height-layout #page-wrapper {
     min-height: auto;
 }
 
-body.boxed-layout {
-    background: url('patterns/shattered.png');
-}
+
 
 body.boxed-layout #wrapper {
     background-color: #2f4050;
@@ -7184,7 +7182,7 @@ body.rtls.top-navigation .footer.fixed {
 
 .blue-skin {
     font-weight: 600;
-    background: url("patterns/header-profile-skin-1.png") repeat scroll 0 0;
+
 }
 
 .blue-skin:hover {
@@ -7193,7 +7191,7 @@ body.rtls.top-navigation .footer.fixed {
 
 .yellow-skin {
     font-weight: 600;
-    background: url("patterns/header-profile-skin-3.png") repeat scroll 0 100%;
+
 }
 
 .yellow-skin:hover {
@@ -7249,7 +7247,7 @@ body.rtls.top-navigation .footer.fixed {
 
 .skin-1 .nav-header {
     background: #0e9aef;
-    background: url('patterns/header-profile-skin-1.png');
+
 }
 
 .skin-1.mini-navbar .nav-second-level {
@@ -7402,7 +7400,7 @@ body.boxed-layout.skin-3 #wrapper {
 
 .skin-3 .nav-header {
     background: #ecba52;
-    background: url('patterns/header-profile-skin-3.png');
+
 }
 
 .skin-3.mini-navbar .nav-second-level {

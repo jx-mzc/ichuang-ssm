@@ -4,11 +4,11 @@
 <mapper namespace="com.ichuang.dao.CourseChapterDao">
     <!-- 添加课程章节信息 -->
     <insert id="add" parameterType="CourseChapter">
-        insert into coures_chapter(id,name,number,course_name,course_id,video_path)
-        values (#{id},#{name},#{number},#{course_name},#{course_id},#{video_path});
+        insert into coures_chapter(name,number,course_name,course_id,video_path)
+        values (#{name},#{number},#{course_name},#{course_id},#{video_path});
     </insert>
     <!-- 删除课程章节信息 -->
-    <delete id="delete" parameterType="String">
+    <delete id="delete" parameterType="Integer">
         delete from course_chapter where id=#{id};
     </delete>
     <!-- 修改课程章节信息 -->
@@ -28,7 +28,7 @@
         where id=#{id};
     </update>
     <!-- 查找课程章节信息根据id -->
-    <select id="getById" parameterType="String" resultType="CourseChapter">
+    <select id="getById" parameterType="Integer" resultType="CourseChapter">
         select * from course_chapter where id=#{id};
     </select>
     <!-- 查找课程章节信息列表-->
