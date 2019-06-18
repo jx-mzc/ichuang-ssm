@@ -40,7 +40,7 @@ public class FreeTimeController {
     }
 
     /**
-     * 根据member_id判断空闲时间信息
+     * 根据member_id判断空闲时间信息后
      * @return
      */
     @ResponseBody
